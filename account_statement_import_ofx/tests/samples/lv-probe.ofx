@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<?OFX OFXHEADER="200" VERSION="211" SECURITY="NONE" OLDFILEUID="NONE" NEWFILEUID="NONE"?>
+<OFX>
+  <SIGNONMSGSRSV1>
+    <SONRS>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <DTSERVER>20261103120000</DTSERVER>
+      <LANGUAGE>ENG</LANGUAGE>
+    </SONRS>
+  </SIGNONMSGSRSV1>
+  <BANKMSGSRSV1>
+    <STMTTRNRS>
+      <TRNUID>0</TRNUID>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <STMTRS>
+        <CURDEF>EUR</CURDEF>
+        <BANKACCTFROM>
+          <BANKID>HABALV22</BANKID>
+          <ACCTID>LV80BANK0000435195001</ACCTID>
+          <ACCTTYPE>CHECKING</ACCTTYPE>
+        </BANKACCTFROM>
+        <BANKTRANLIST>
+          <DTSTART>20261101</DTSTART>
+          <DTEND>20261103</DTEND>
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20261102</DTPOSTED>
+            <TRNAMT>250.50</TRNAMT>
+            <FITID>LVPROBE-0001</FITID>
+            <NAME>SIA Paraugs</NAME>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20261102</DTPOSTED>
+            <TRNAMT>-120.00</TRNAMT>
+            <FITID>LVPROBE-0002</FITID>
+            <NAME>AS Elektrotikls</NAME>
+          </STMTTRN>
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20261103</DTPOSTED>
+            <TRNAMT>-35.40</TRNAMT>
+            <FITID>LVPROBE-0003</FITID>
+            <NAME>SIA Birojs</NAME>
+          </STMTTRN>
+        </BANKTRANLIST>
+        <LEDGERBAL>
+          <BALAMT>1095.10</BALAMT>
+          <DTASOF>20261103</DTASOF>
+        </LEDGERBAL>
+      </STMTRS>
+    </STMTTRNRS>
+  </BANKMSGSRSV1>
+</OFX>
