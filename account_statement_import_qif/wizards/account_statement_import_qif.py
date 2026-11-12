@@ -32,6 +32,7 @@ class AccountStatementImport(models.TransientModel):
             raise UserError(self.env._("Could not decipher the QIF file.")) from e
         transactions = []
         vals_line = {}
+        memo = None
         total = 0
         if header in ("Bank", "CCard"):
             vals_bank_statement = {}
@@ -48,26 +49,26 @@ class AccountStatementImport(models.TransientModel):
                     vals_line["amount"] = float(line[1:].replace(",", ""))
                 elif line[0] == "N":  # Check number
                     vals_line["ref"] = line[1:]
-                elif line[0] == "P":  # Payee
-                    vals_line["payment_ref"] = (
-                        "name" in vals_line
-                        and line[1:] + ": " + vals_line["name"]
-                        or line[1:]
+                elif line[0] == "P":  # Payee: the counterparty
+                    vals_line["partner_name"] = line[1:]
+                elif line[0] == "M":  # Memo: the purpose
+                    memo = line[1:]
+                elif line[0] == "^" and (vals_line or memo):  # end of item
+                    # The label reads "payee: memo", whichever of P and M
+                    # comes first in the item.
+                    label = ": ".join(
+                        part for part in (vals_line.get("partner_name"), memo) if part
                     )
-                elif line[0] == "M":  # Memo
-                    vals_line["payment_ref"] = (
-                        "name" in vals_line
-                        and vals_line["name"] + ": " + line[1:]
-                        or line[1:]
-                    )
-                elif line[0] == "^" and vals_line:  # end of item
+                    if label:
+                        vals_line["payment_ref"] = label
                     transactions.append(vals_line)
                     vals_line = {}
+                    memo = None
                 elif line[0] == "\n":
                     transactions = []
                 else:
                     pass
-            if vals_line:
+            if vals_line or memo:
                 # Every item ends with "^"; an item without it means the
                 # file was cut, and importing the rest would lose operations.
                 raise UserError(
@@ -101,10 +102,8 @@ class AccountStatementImport(models.TransientModel):
         partner_obj = self.env["res.partner"]
         for statement in res:
             for line_vals in statement["transactions"]:
-                if not line_vals.get("partner_id") and line_vals.get("payment_ref"):
-                    partner = partner_obj.search(
-                        [("name", "ilike", line_vals["payment_ref"])],
-                        limit=1,
-                    )
+                payee = line_vals.get("partner_name") or line_vals.get("payment_ref")
+                if not line_vals.get("partner_id") and payee:
+                    partner = partner_obj.search([("name", "ilike", payee)], limit=1)
                     line_vals["partner_id"] = partner.id
         return res
