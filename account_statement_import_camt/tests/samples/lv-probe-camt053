@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02">
+    <BkToCstmrStmt>
+        <GrpHdr>
+            <MsgId>LVPROBE/20261103/0001</MsgId>
+            <CreDtTm>2026-11-03T18:00:00</CreDtTm>
+        </GrpHdr>
+        <Stmt>
+            <Id>LVPROBE/2026-11-03</Id>
+            <CreDtTm>2026-11-03T18:00:00</CreDtTm>
+            <Acct>
+                <Id>
+                    <IBAN>LV80BANK0000435195001</IBAN>
+                </Id>
+                <Ccy>EUR</Ccy>
+            </Acct>
+            <Bal>
+                <Tp>
+                    <CdOrPrtry>
+                        <Cd>OPBD</Cd>
+                    </CdOrPrtry>
+                </Tp>
+                <Amt Ccy="EUR">1000.00</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Dt>
+                    <Dt>2026-11-02</Dt>
+                </Dt>
+            </Bal>
+            <Bal>
+                <Tp>
+                    <CdOrPrtry>
+                        <Cd>CLBD</Cd>
+                    </CdOrPrtry>
+                </Tp>
+                <Amt Ccy="EUR">1095.10</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Dt>
+                    <Dt>2026-11-03</Dt>
+                </Dt>
+            </Bal>
+            <Ntry>
+                <Amt Ccy="EUR">250.50</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2026-11-02</Dt>
+                </BookgDt>
+                <ValDt>
+                    <Dt>2026-11-02</Dt>
+                </ValDt>
+                <AcctSvcrRef>LVPROBE-0001</AcctSvcrRef>
+                <NtryDtls>
+                    <TxDtls>
+                        <Refs>
+                            <EndToEndId>E2E-LV-0001</EndToEndId>
+                        </Refs>
+                        <RltdPties>
+                            <Dbtr>
+                                <Nm>SIA Paraugs</Nm>
+                            </Dbtr>
+                            <DbtrAcct>
+                                <Id>
+                                    <IBAN>LV10RIKO0002013000000</IBAN>
+                                </Id>
+                            </DbtrAcct>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>Rekins 2026/117</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+            <Ntry>
+                <Amt Ccy="EUR">120.00</Amt>
+                <CdtDbtInd>DBIT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2026-11-02</Dt>
+                </BookgDt>
+                <ValDt>
+                    <Dt>2026-11-02</Dt>
+                </ValDt>
+                <AcctSvcrRef>LVPROBE-0002</AcctSvcrRef>
+                <NtryDtls>
+                    <TxDtls>
+                        <Refs>
+                            <EndToEndId>E2E-LV-0002</EndToEndId>
+                        </Refs>
+                        <RltdPties>
+                            <Cdtr>
+                                <Nm>AS Elektrotikls</Nm>
+                            </Cdtr>
+                            <CdtrAcct>
+                                <Id>
+                                    <IBAN>LV41HABA0551000000001</IBAN>
+                                </Id>
+                            </CdtrAcct>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>Elektriba oktobris</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+            <Ntry>
+                <Amt Ccy="EUR">35.40</Amt>
+                <CdtDbtInd>DBIT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2026-11-03</Dt>
+                </BookgDt>
+                <ValDt>
+                    <Dt>2026-11-03</Dt>
+                </ValDt>
+                <AcctSvcrRef>LVPROBE-0003</AcctSvcrRef>
+                <NtryDtls>
+                    <TxDtls>
+                        <Refs>
+                            <EndToEndId>E2E-LV-0003</EndToEndId>
+                        </Refs>
+                        <RltdPties>
+                            <Cdtr>
+                                <Nm>SIA Birojs</Nm>
+                            </Cdtr>
+                            <CdtrAcct>
+                                <Id>
+                                    <IBAN>LV62PARX0000000000002</IBAN>
+                                </Id>
+                            </CdtrAcct>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>Kancelejas preces</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+        </Stmt>
+    </BkToCstmrStmt>
+</Document>
