@@ -4,8 +4,6 @@
 # Copyright 2016-2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import base64
-
 import dateutil.parser
 
 from odoo import api, models
@@ -89,7 +87,7 @@ class AccountStatementImport(models.TransientModel):
         # provide 'account_number', which the generic module uses to find
         # the partner), we have to find res.partner through the name
         if not self.statement_file or not self._check_qif(
-            base64.b64decode(self.statement_file)
+            self.statement_file.content
         ):
             return res
         partner_obj = self.env["res.partner"]

@@ -5,9 +5,8 @@
 # Copyright 2024 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import base64
-
 from odoo.tests.common import TransactionCase
+from odoo.tools import BinaryBytes
 from odoo.tools.misc import file_path
 
 
@@ -38,7 +37,7 @@ class TestQifFile(TransactionCase):
 
     def test_qif_file_import(self):
         qif_file_path = file_path("account_statement_import_qif/tests/test_qif.qif")
-        qif_file = base64.b64encode(open(qif_file_path, "rb").read())
+        qif_file = BinaryBytes(open(qif_file_path, "rb").read())
         wizard = self.statement_import_model.with_context(
             journal_id=self.journal.id
         ).create({"statement_file": qif_file, "statement_filename": "test_qif.qif"})
