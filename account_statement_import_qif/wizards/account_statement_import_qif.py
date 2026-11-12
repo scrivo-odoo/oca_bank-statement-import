@@ -67,6 +67,14 @@ class AccountStatementImport(models.TransientModel):
                     transactions = []
                 else:
                     pass
+            if vals_line:
+                # Every item ends with "^"; an item without it means the
+                # file was cut, and importing the rest would lose operations.
+                raise UserError(
+                    self.env._(
+                        "The QIF file ends inside an item: the file is incomplete."
+                    )
+                )
         else:
             raise UserError(
                 self.env._(

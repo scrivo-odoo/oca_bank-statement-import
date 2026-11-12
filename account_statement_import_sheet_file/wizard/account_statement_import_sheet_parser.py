@@ -211,6 +211,18 @@ class AccountStatementImportSheetParser(models.TransientModel):
             if isinstance(index, int):
                 if index <= max_index:
                     content_l.append(values[index])
+                elif any(values):
+                    # A row shorter than the mapping is a cut or malformed
+                    # row: reading it would turn the missing cells into an
+                    # empty amount or date.
+                    raise UserError(
+                        self.env._(
+                            "A row has fewer columns than the mapping expects "
+                            "(column %(column)s is missing): %(row)s",
+                            column=index + 1,
+                            row=values,
+                        )
+                    )
             else:
                 if index in values:
                     content_l.append(values[index])
