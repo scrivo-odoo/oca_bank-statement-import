@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02">
+    <BkToCstmrStmt>
+        <GrpHdr>
+            <MsgId>LVPROBE/20261105/0001</MsgId>
+            <CreDtTm>2026-11-05T18:00:00</CreDtTm>
+        </GrpHdr>
+        <Stmt>
+            <Id>LVPROBE/2026-11-05</Id>
+            <CreDtTm>2026-11-05T18:00:00</CreDtTm>
+            <Acct>
+                <Id>
+                    <IBAN>LV80BANK0000435195001</IBAN>
+                </Id>
+                <Ccy>EUR</Ccy>
+            </Acct>
+            <Bal>
+                <Tp>
+                    <CdOrPrtry>
+                        <Cd>OPBD</Cd>
+                    </CdOrPrtry>
+                </Tp>
+                <Amt Ccy="EUR">1095.10</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Dt>
+                    <Dt>2026-11-05</Dt>
+                </Dt>
+            </Bal>
+            <Bal>
+                <Tp>
+                    <CdOrPrtry>
+                        <Cd>CLBD</Cd>
+                    </CdOrPrtry>
+                </Tp>
+                <Amt Ccy="EUR">1345.60</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Dt>
+                    <Dt>2026-11-05</Dt>
+                </Dt>
+            </Bal>
+            <Ntry>
+                <Amt Ccy="EUR">250.50</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2026-11-05</Dt>
+                </BookgDt>
+                <AcctSvcrRef>LVPROBE-0004</AcctSvcrRef>
+                <NtryDtls>
+                    <TxDtls>
+                        <Refs>
+                            <EndToEndId>E2E-LV-0004-A</EndToEndId>
+                        </Refs>
+                        <AmtDtls>
+                            <TxAmt>
+                                <Amt Ccy="EUR">200.00</Amt>
+                            </TxAmt>
+                        </AmtDtls>
+                        <RltdPties>
+                            <Dbtr>
+                                <Nm>SIA Paraugs</Nm>
+                            </Dbtr>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>Rekins 2026/120</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                    <TxDtls>
+                        <Refs>
+                            <EndToEndId>E2E-LV-0004-B</EndToEndId>
+                        </Refs>
+                        <AmtDtls>
+                            <TxAmt>
+                                <Amt Ccy="EUR">50.50</Amt>
+                            </TxAmt>
+                        </AmtDtls>
+                        <RltdPties>
+                            <Dbtr>
+                                <Nm>SIA Paraugs</Nm>
+                            </Dbtr>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>Rekins 2026/121</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+        </Stmt>
+    </BkToCstmrStmt>
+</Document>

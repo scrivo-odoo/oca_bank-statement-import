@@ -153,6 +153,43 @@ class TestLvProbeImport(TransactionCase):
         lines = self._journal_lines()
         self.assertEqual(sorted(lines.mapped("amount")), [-120.00, -35.40, 250.50])
 
+    def _import_tolerating_already_imported(self, data):
+        # A file with nothing new is refused as "already imported"; what the
+        # probes measure is how many lines exist afterwards.
+        try:
+            self._import(data)
+        except UserError:
+            pass
+
+    def test_reimporting_the_same_file_adds_no_lines(self):
+        self._import(self.sample_bytes)
+        self._import_tolerating_already_imported(self.sample_bytes)
+        lines = self._journal_lines()
+        self.assertEqual(len(lines), 3)
+        self.assertEqual(sorted(lines.mapped("amount")), [-120.00, -35.40, 250.50])
+
+    def test_operations_differing_only_by_bank_reference_are_both_imported(self):
+        # Same statement, dates, amounts and parties; only the bank's entry
+        # references differ, so these are three other operations.
+        other = self.sample_bytes.replace(b"<AcctSvcrRef>LVPROBE-000", b"<AcctSvcrRef>LVPROBE-100")
+        self.assertNotEqual(other, self.sample_bytes)
+        self._import(self.sample_bytes)
+        self._import(other)
+        lines = self._journal_lines()
+        self.assertEqual(len(lines), 6)
+        self.assertEqual(
+            sorted(lines.mapped("amount")),
+            [-120.00, -120.00, -35.40, -35.40, 250.50, 250.50],
+        )
+
+    def test_entry_with_two_transactions_imports_both_once(self):
+        with open(file_path(SAMPLE + "-batch"), "rb") as sample:
+            batch = sample.read()
+        self._import(batch)
+        self._import_tolerating_already_imported(batch)
+        lines = self._journal_lines()
+        self.assertEqual(sorted(lines.mapped("amount")), [50.50, 200.00])
+
     def test_not_xml_is_rejected(self):
         with self.assertRaises(UserError):
             self._import(b"\x00\x01 this is not a bank statement \xff")

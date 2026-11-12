@@ -101,6 +101,20 @@ class TestLvProbeCamt54(TransactionCase):
         self.assertAlmostEqual(sum(lines.mapped("amount")), 0.0, places=2)
         self.assertAlmostEqual(statement.balance_end_real, 0.0, places=2)
 
+    def test_reimporting_the_same_notification_adds_no_lines(self):
+        self.journal.transfer_line = True
+        self._import(self.sample_bytes)
+        try:
+            self._import(self.sample_bytes)
+        except UserError:
+            pass  # refused as already imported
+        lines = self.env["account.bank.statement.line"].search(
+            [("journal_id", "=", self.journal.id)]
+        )
+        # Two lines from the file and one balancing line, once.
+        self.assertEqual(len(lines), 3)
+        self.assertAlmostEqual(sum(lines.mapped("amount")), 0.0, places=2)
+
     def test_truncated_notification_is_rejected(self):
         self.journal.transfer_line = True
         cut = self.sample_bytes.index(b"<Nm>SIA Birojs")
