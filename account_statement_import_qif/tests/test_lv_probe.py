@@ -3,6 +3,8 @@
 
 The expected values below are copied from ``samples/lv-probe.qif``: one
 credit and two debits (250.50, -120.00, -35.40) on 2 and 3 November 2026.
+``samples/lv-probe-memo.qif`` gives two items a payee (``P``) and a memo
+(``M``), in both orders: the payee is the counterparty, the memo the purpose.
 """
 
 from datetime import date
@@ -13,6 +15,7 @@ from odoo.tools import BinaryBytes
 from odoo.tools.misc import file_path
 
 SAMPLE = "account_statement_import_qif/tests/samples/lv-probe.qif"
+SAMPLE_MEMO = "account_statement_import_qif/tests/samples/lv-probe-memo.qif"
 
 
 class TestLvProbeQif(TransactionCase):
@@ -91,3 +94,20 @@ class TestLvProbeQif(TransactionCase):
             self.fail("a file that is not a statement was imported")
         self.assertFalse(self._journal_statements())
         self.assertFalse(self._journal_lines())
+
+    def test_payee_and_memo_are_both_kept(self):
+        paraugs = self.env["res.partner"].create({"name": "SIA Paraugs"})
+        elektrotikls = self.env["res.partner"].create({"name": "AS Elektrotikls"})
+        with open(file_path(SAMPLE_MEMO), "rb") as sample:
+            self._import(sample.read())
+        lines = self._journal_lines().sorted(lambda line: -line.amount)
+        self.assertEqual(lines.mapped("amount"), [250.50, -120.00])
+        # Payee first, then memo, whatever the order of P and M in the item.
+        self.assertEqual(
+            lines.mapped("payment_ref"),
+            ["SIA Paraugs: Rekins 2026/117", "AS Elektrotikls: Elektriba oktobris"],
+        )
+        self.assertEqual(
+            lines.mapped("partner_name"), ["SIA Paraugs", "AS Elektrotikls"]
+        )
+        self.assertEqual(lines.mapped("partner_id"), paraugs + elektrotikls)
