@@ -59,11 +59,15 @@ class TestGenerateBankStatement(TransactionCase):
             statement_lines = bank_st_record.line_ids
             return statement_lines
 
+    # One import per test: importing the same file a second time is refused as
+    # already imported.
     def test_statement_import(self):
         self.journal.transfer_line = True
         lines = self._load_statement()
         self.assertEqual(len(lines), 2)
         self.assertAlmostEqual(sum(lines.mapped("amount")), 0)
+
+    def test_statement_import_without_transfer_line(self):
         self.journal.transfer_line = False
         lines = self._load_statement()
         self.assertEqual(len(lines), 1)

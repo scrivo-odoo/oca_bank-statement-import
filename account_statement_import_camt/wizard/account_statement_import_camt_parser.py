@@ -381,6 +381,38 @@ class AccountStatementImportCamtParser(models.AbstractModel):
             self.parse_amount(ns, end_balance_node),
         )
 
+    def _get_entry_import_id(self, ns, entry_node, statement_name, entry_index, used_ids):
+        """Return a key that identifies an entry across imports of the same file.
+
+        The bank's own reference of the entry (AcctSvcrRef, with NtryRef when
+        given) identifies the operation on the account, so a re-sent file maps
+        to the same keys while another operation with the same date and amount
+        does not. Without a usable reference, or when it repeats within the
+        statement, the key falls back to the statement id, booking date and the
+        entry's position. The journal and account prefix is added by
+        ``account.journal._statement_line_import_update_unique_import_id``.
+        """
+        bank_ref = "".join(
+            entry_node.xpath("./ns:AcctSvcrRef/text()", namespaces={"ns": ns})
+        ).strip()
+        entry_ref = "".join(
+            entry_node.xpath("./ns:NtryRef/text()", namespaces={"ns": ns})
+        ).strip()
+        if bank_ref.strip("0") and bank_ref.upper() != "NOTPROVIDED":
+            entry_id = f"{bank_ref}-{entry_ref}" if entry_ref else bank_ref
+            if entry_id not in used_ids:
+                used_ids.add(entry_id)
+                return entry_id
+        booking_date = entry_node.xpath(
+            "./ns:BookgDt/ns:Dt/text() | ./ns:BookgDt/ns:DtTm/text()",
+            namespaces={"ns": ns},
+        )
+        entry_id = "-".join(
+            [statement_name or "", booking_date[0] if booking_date else "", str(entry_index)]
+        )
+        used_ids.add(entry_id)
+        return entry_id
+
     def parse_statement(self, ns, node):
         """Parse a single Stmt node."""
         result = {}
@@ -408,8 +440,19 @@ class AccountStatementImportCamtParser(models.AbstractModel):
         )
         entry_nodes = node.xpath("./ns:Ntry", namespaces={"ns": ns})
         transactions = []
-        for entry_node in entry_nodes:
-            transactions.extend(self.parse_entry(ns, entry_node))
+        used_ids = set()
+        for entry_index, entry_node in enumerate(entry_nodes, start=1):
+            entry_transactions = list(self.parse_entry(ns, entry_node))
+            entry_id = self._get_entry_import_id(
+                ns, entry_node, result.get("name"), entry_index, used_ids
+            )
+            for tx_index, transaction in enumerate(entry_transactions, start=1):
+                transaction["unique_import_id"] = (
+                    f"{entry_id}-{tx_index}"
+                    if len(entry_transactions) > 1
+                    else entry_id
+                )
+            transactions.extend(entry_transactions)
         result["transactions"] = transactions
         result["date"] = None
         if transactions:
