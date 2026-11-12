@@ -8,6 +8,7 @@ import tempfile
 from datetime import date
 from pathlib import Path
 
+from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
 from odoo.tools import BinaryBytes
 from odoo.tools.misc import file_path
@@ -80,6 +81,10 @@ class TestParserCommon(TransactionCase):
         return Path(file)
 
 
+# The golden files describe this module's parser alone. Modules depending on
+# it (account_statement_import_camt54) change the parsed labels, so these
+# tests run before such modules are installed.
+@tagged("at_install", "-post_install")
 class TestParser(TestParserCommon):
     """Tests for the camt parser itself."""
 
