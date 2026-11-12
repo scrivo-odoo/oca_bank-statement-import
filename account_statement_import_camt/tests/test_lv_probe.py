@@ -126,6 +126,33 @@ class TestLvProbeImport(TransactionCase):
         self.assertFalse(self._journal_statements())
         self.assertFalse(self._journal_lines())
 
+    def test_every_truncation_point_is_rejected_by_the_parser(self):
+        # Banks send both pretty-printed and single-line files.
+        one_line = b"".join(line.strip() for line in self.sample_bytes.splitlines())
+        parser = self.env["account.statement.import.camt.parser"]
+        for layout, data in (("multi-line", self.sample_bytes), ("one-line", one_line)):
+            end = data.index(b"</Document>")
+            accepted = []
+            for cut in range(1, end):
+                try:
+                    parser.parse(data[:cut])
+                except (UserError, ValueError):
+                    continue
+                accepted.append(cut)
+            self.assertFalse(
+                accepted,
+                f"{layout}: {len(accepted)} of {end - 1} truncated copies parsed, "
+                f"first cuts {accepted[:5]}",
+            )
+
+    def test_dirty_but_complete_camt053_is_imported(self):
+        # A bare ampersand is malformed XML that the recovering parser tolerates;
+        # nothing is lost, so the file must still import in full.
+        dirty = self.sample_bytes.replace(b"Rekins 2026/117", b"Rekins & Co 2026/117")
+        self._import(dirty)
+        lines = self._journal_lines()
+        self.assertEqual(sorted(lines.mapped("amount")), [-120.00, -35.40, 250.50])
+
     def test_not_xml_is_rejected(self):
         with self.assertRaises(UserError):
             self._import(b"\x00\x01 this is not a bank statement \xff")

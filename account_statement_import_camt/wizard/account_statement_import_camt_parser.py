@@ -8,6 +8,9 @@ import re
 from lxml import etree
 
 from odoo import models
+from odoo.exceptions import UserError
+
+RE_CAMT = re.compile(r"(^urn:iso:std:iso:20022:tech:xsd:camt." r"|^ISO:camt.)")
 
 
 class AccountStatementImportCamtParser(models.AbstractModel):
@@ -416,8 +419,7 @@ class AccountStatementImportCamtParser(models.AbstractModel):
     def check_version(self, ns, root):
         """Validate validity of camt file."""
         # Check whether it is camt at all:
-        re_camt = re.compile(r"(^urn:iso:std:iso:20022:tech:xsd:camt." r"|^ISO:camt.)")
-        if not re_camt.search(ns):
+        if not RE_CAMT.search(ns):
             raise ValueError("no camt: " + ns)
         # Check whether version 052 ,053 or 054:
         re_camt_version = re.compile(
@@ -431,15 +433,46 @@ class AccountStatementImportCamtParser(models.AbstractModel):
         if not re_camt_version.search(ns):
             raise ValueError("no camt 052 or 053 or 054:" + ns)
         # Check GrpHdr element:
+        if not len(root) or not len(root[0]):
+            raise ValueError("expected GrpHdr, got an empty document")
         root_0_0 = root[0][0].tag[len(ns) + 2 :]  # strip namespace
         if root_0_0 != "GrpHdr":
             raise ValueError("expected GrpHdr, got:", root_0_0)
 
+    def _check_not_truncated(self, data, error_log):
+        """Reject a file that ends before its document is complete.
+
+        The recovering parser keeps whatever it read before the end of a
+        truncated file, which would import part of a statement without any
+        warning. Other malformations it recovers from (a stray ampersand, a
+        bad byte) lose nothing and are tolerated. A truncated file is told
+        apart by a fatal error reported at the very end of the input;
+        libxml2 counts columns in characters, hence the decoded last line.
+        """
+        last_line = data.count(b"\n") + 1
+        last_column = len(data.rsplit(b"\n", 1)[-1].decode("utf-8", errors="ignore"))
+        for error in error_log:
+            if (
+                error.level_name == "FATAL"
+                and error.type_name != "ERR_DOCUMENT_END"
+                and (error.line, error.column) >= (last_line, last_column)
+            ):
+                raise UserError(
+                    self.env._(
+                        "The CAMT file is damaged: it ends before the statement "
+                        "is complete (line %(line)s). Nothing was imported; "
+                        "download the statement from the bank again.",
+                        line=error.line,
+                    )
+                )
+
     def parse(self, data):
         """Parse a camt.052 or camt.053 or camt.054 file."""
+        xml_parser = etree.XMLParser(recover=True)
         try:
-            root = etree.fromstring(data, parser=etree.XMLParser(recover=True))
+            root = etree.fromstring(data, parser=xml_parser)
         except etree.XMLSyntaxError:
+            xml_parser = None
             try:
                 # ABNAmro is known to mix up encodings
                 root = etree.fromstring(data.decode("iso-8859-15").encode("utf-8"))
@@ -448,6 +481,8 @@ class AccountStatementImportCamtParser(models.AbstractModel):
         if root is None:
             raise ValueError("Not a valid xml file, or not an xml file at all.")
         ns = root.tag[1 : root.tag.index("}")]
+        if xml_parser is not None and RE_CAMT.search(ns):
+            self._check_not_truncated(data, xml_parser.error_log)
         self.check_version(ns, root)
         statements = []
         currency = None
