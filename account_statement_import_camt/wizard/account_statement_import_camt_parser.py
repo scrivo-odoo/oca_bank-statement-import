@@ -184,9 +184,6 @@ class AccountStatementImportCamtParser(models.AbstractModel):
             transaction,
             "ref",
         )
-        amount = self.parse_amount(ns, node)
-        if amount != 0.0:
-            transaction["amount"] = amount
         # remote party values
         party_type = "Dbtr"
         party_type_node = node.xpath("../../ns:CdtDbtInd", namespaces={"ns": ns})
@@ -342,10 +339,28 @@ class AccountStatementImportCamtParser(models.AbstractModel):
             self.generate_narration(transaction)
             yield transaction
             return
+        # The booked amount (Ntry/Amt) is what moved the account. A batch entry
+        # is split into one line per TxDtls only when the transaction amounts
+        # add up to it; a single TxDtls, or a batch that does not add up, keeps
+        # the booked amount on one line, so the lines match the balances.
+        details_amounts = [self.parse_amount(ns, d) for d in details_nodes]
+        if len(details_nodes) > 1 and (
+            round(sum(details_amounts), 2) != round(transaction["amount"], 2)
+            or 0.0 in details_amounts
+        ):
+            self.generate_narration(transaction)
+            yield transaction
+            return
         transaction_base = transaction
-        for details_node in details_nodes:
+        for details_node, details_amount in zip(
+            details_nodes, details_amounts, strict=True
+        ):
             transaction = transaction_base.copy()
             self.parse_transaction_details(ns, details_node, transaction)
+            if len(details_nodes) > 1 or (
+                transaction["amount"] == 0.0 and details_amount != 0.0
+            ):
+                transaction["amount"] = details_amount
             self.generate_narration(transaction)
             yield transaction
 
@@ -527,15 +542,23 @@ class AccountStatementImportCamtParser(models.AbstractModel):
         if xml_parser is not None and RE_CAMT.search(ns):
             self._check_not_truncated(data, xml_parser.error_log)
         self.check_version(ns, root)
-        statements = []
-        currency = None
-        account_number = None
+        # A file may hold statements of several currencies or accounts (one Stmt
+        # per currency of a multi-currency account). Each (currency, account)
+        # pair is returned as its own triplet so that it is matched to the
+        # journal of that currency; a file with one pair keeps the single
+        # triplet of the import contract.
+        groups = {}
         for node in root[0][1:]:
             statement = self.parse_statement(ns, node)
             if len(statement["transactions"]):
-                if "currency" in statement:
-                    currency = statement.pop("currency")
-                if "account_number" in statement:
-                    account_number = statement.pop("account_number")
-                statements.append(statement)
-        return currency, account_number, statements
+                key = (
+                    statement.pop("currency", None),
+                    statement.pop("account_number", None),
+                )
+                groups.setdefault(key, []).append(statement)
+        if not groups:
+            return None, None, []
+        triplets = [
+            (currency, account, stmts) for (currency, account), stmts in groups.items()
+        ]
+        return triplets[0] if len(triplets) == 1 else triplets

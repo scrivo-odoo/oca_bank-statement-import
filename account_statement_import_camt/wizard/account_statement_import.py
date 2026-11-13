@@ -21,15 +21,15 @@ class AccountStatementImport(models.TransientModel):
         except ValueError:
             try:
                 with zipfile.ZipFile(BytesIO(data_file)) as data:
-                    currency = None
-                    account_number = None
-                    transactions = []
+                    triplets = []
                     for member in data.namelist():
-                        currency, account_number, new = self._parse_file(
-                            data.open(member).read()
-                        )
-                        transactions.extend(new)
-                return currency, account_number, transactions
+                        parsed = self._parse_file(data.open(member).read())
+                        if not isinstance(parsed, list):
+                            parsed = [parsed]
+                        triplets.extend(parsed)
+                if not triplets:
+                    return None, None, []
+                return triplets[0] if len(triplets) == 1 else triplets
             # pylint: disable=except-pass
             except (zipfile.BadZipFile, ValueError):
                 _logger.exception("BadZipfile exception")
