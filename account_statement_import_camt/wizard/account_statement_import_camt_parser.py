@@ -11,6 +11,10 @@ from odoo import models
 from odoo.exceptions import UserError
 
 RE_CAMT = re.compile(r"(^urn:iso:std:iso:20022:tech:xsd:camt." r"|^ISO:camt.)")
+# Message elements of camt.052, camt.053 and camt.054 under the Document root.
+CAMT_MESSAGE_TAGS = frozenset(
+    {"BkToCstmrAcctRpt", "BkToCstmrStmt", "BkToCstmrDbtCdtNtfctn"}
+)
 
 
 class AccountStatementImportCamtParser(models.AbstractModel):
@@ -497,6 +501,27 @@ class AccountStatementImportCamtParser(models.AbstractModel):
         if root_0_0 != "GrpHdr":
             raise ValueError("expected GrpHdr, got:", root_0_0)
 
+    def _check_namespace_missing(self, root):
+        """Refuse a CAMT document written without the ISO 20022 namespace.
+
+        Without the namespace the elements cannot be told from those of any
+        other XML format, so such a file would fall through to the message for
+        an unknown format. A ``Document`` root holding a CAMT message element
+        is recognised by its tag names and refused with the actual reason.
+        """
+        if root.tag != "Document" or not len(root):
+            return
+        if root[0].tag in CAMT_MESSAGE_TAGS:
+            raise UserError(
+                self.env._(
+                    "The file looks like a CAMT bank statement (%(message)s), but "
+                    "its Document element has no ISO 20022 namespace (xmlns), so "
+                    "the CAMT version cannot be determined. Ask the bank for a "
+                    "file with the namespace declared.",
+                    message=root[0].tag,
+                )
+            )
+
     def _check_not_truncated(self, data, error_log):
         """Reject a file that ends before its document is complete.
 
@@ -538,6 +563,9 @@ class AccountStatementImportCamtParser(models.AbstractModel):
                 root = None
         if root is None:
             raise ValueError("Not a valid xml file, or not an xml file at all.")
+        if "}" not in root.tag:
+            self._check_namespace_missing(root)
+            raise ValueError("no namespace: not a camt file")
         ns = root.tag[1 : root.tag.index("}")]
         if xml_parser is not None and RE_CAMT.search(ns):
             self._check_not_truncated(data, xml_parser.error_log)
