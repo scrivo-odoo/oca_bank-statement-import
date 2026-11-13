@@ -220,7 +220,7 @@ class AccountStatementImport(models.TransientModel):
         else:
             sanitized_account_number = sanitize_account_number(account_number)
 
-            journal = journal_obj.search(
+            journals = journal_obj.search(
                 [
                     ("type", "=", "bank"),
                     (
@@ -228,9 +228,14 @@ class AccountStatementImport(models.TransientModel):
                         "ilike",
                         sanitized_account_number,
                     ),
-                ],
-                limit=1,
+                ]
             )
+            # An account held in several currencies has a journal per currency:
+            # take the one of the statement's currency, else the first one (its
+            # currency is checked below and refused with a clear message).
+            journal = journals.filtered(
+                lambda j: (j.currency_id or company.currency_id) == currency
+            )[:1] or journals[:1]
             ctx_journal_id = self.env.context.get("journal_id")
             if journal and ctx_journal_id and journal.id != ctx_journal_id:
                 ctx_journal = journal_obj.browse(ctx_journal_id)
