@@ -18,7 +18,7 @@ from odoo.tools.misc import file_path
 TWO_CURRENCIES = (
     "account_statement_import_camt/tests/samples/swedbank-camt053-two-currencies"
 )
-BATCH = "account_statement_import_camt/tests/samples/lv-probe-camt053-batch"
+BATCH = "account_statement_import_camt/tests/samples/camt053-three-entries-batch"
 IBAN = "EE062200221055091966"
 
 

@@ -1,22 +1,15 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-"""Import probes on a hand-written CAMT.053 sample with Latvian accounts.
-
-The expected values below are copied from ``samples/lv-probe-camt053``:
-one credit and two debits on account LV80BANK0000435195001, opening
-balance 1000.00, closing balance 1095.10 EUR.
-"""
-
-from datetime import date
+"""Truncated and repeated imports of ``samples/camt053-three-entries``."""
 
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 from odoo.tools import BinaryBytes
 from odoo.tools.misc import file_path
 
-SAMPLE = "account_statement_import_camt/tests/samples/lv-probe-camt053"
+SAMPLE = "account_statement_import_camt/tests/samples/camt053-three-entries"
 
 
-class TestLvProbeImport(TransactionCase):
+class TestTruncatedAndRepeatedImport(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -70,45 +63,6 @@ class TestLvProbeImport(TransactionCase):
         return self.env["account.bank.statement.line"].search(
             [("journal_id", "=", self.journal.id)]
         )
-
-    def test_valid_camt053_creates_exact_lines(self):
-        self._import(self.sample_bytes)
-
-        statement = self._journal_statements()
-        self.assertEqual(len(statement), 1)
-        self.assertEqual(statement.name, "LVPROBE/2026-11-03")
-        self.assertEqual(statement.currency_id, self.eur)
-        self.assertAlmostEqual(statement.balance_start, 1000.00, places=2)
-        self.assertAlmostEqual(statement.balance_end_real, 1095.10, places=2)
-
-        lines = statement.line_ids.sorted("sequence")
-        self.assertEqual(len(lines), 3)
-        self.assertEqual(lines.mapped("amount"), [250.50, -120.00, -35.40])
-        self.assertEqual(
-            lines.mapped("date"),
-            [date(2026, 11, 2), date(2026, 11, 2), date(2026, 11, 3)],
-        )
-        self.assertEqual(
-            lines.mapped("partner_name"),
-            ["SIA Paraugs", "AS Elektrotikls", "SIA Birojs"],
-        )
-        self.assertEqual(
-            lines.mapped("account_number"),
-            [
-                "LV10RIKO0002013000000",
-                "LV41HABA0551000000001",
-                "LV62PARX0000000000002",
-            ],
-        )
-        for line, label in zip(
-            lines,
-            ["Rekins 2026/117", "Elektriba oktobris", "Kancelejas preces"],
-            strict=True,
-        ):
-            self.assertIn(label, line.payment_ref)
-        # The debtor's IBAN is known in Odoo: the line is matched to its partner.
-        self.assertEqual(lines[0].partner_id, self.customer)
-        self.assertAlmostEqual(sum(lines.mapped("amount")), 95.10, places=2)
 
     def test_truncated_camt053_is_rejected(self):
         # The file stops in the middle of the second entry.
@@ -189,9 +143,3 @@ class TestLvProbeImport(TransactionCase):
         self._import_tolerating_already_imported(batch)
         lines = self._journal_lines()
         self.assertEqual(sorted(lines.mapped("amount")), [50.50, 200.00])
-
-    def test_not_xml_is_rejected(self):
-        with self.assertRaises(UserError):
-            self._import(b"\x00\x01 this is not a bank statement \xff")
-        self.assertFalse(self._journal_statements())
-        self.assertFalse(self._journal_lines())

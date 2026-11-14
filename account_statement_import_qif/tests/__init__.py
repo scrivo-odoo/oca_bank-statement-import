@@ -1,4 +1,4 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import test_import_bank_statement
-from . import test_lv_probe
+from . import test_truncated_and_payee_memo

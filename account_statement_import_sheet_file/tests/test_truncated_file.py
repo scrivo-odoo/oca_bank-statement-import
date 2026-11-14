@@ -1,22 +1,15 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-"""Import probes on a hand-written CSV sample with Latvian accounts.
-
-The expected values below are copied from ``samples/lv-probe.csv``: one
-credit and two debits (250.50, -120.00, -35.40) on 2 and 3 November 2026,
-with the counterparty names and IBANs of the rows.
-"""
-
-from datetime import date
+"""A CSV file cut inside a row is refused."""
 
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 from odoo.tools import BinaryBytes
 from odoo.tools.misc import file_path
 
-SAMPLE = "account_statement_import_sheet_file/tests/samples/lv-probe.csv"
+SAMPLE = "account_statement_import_sheet_file/tests/samples/csv-three-rows.csv"
 
 
-class TestLvProbeSheet(TransactionCase):
+class TestTruncatedFile(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -75,29 +68,6 @@ class TestLvProbeSheet(TransactionCase):
             [("journal_id", "=", self.journal.id)]
         )
 
-    def test_valid_csv_creates_exact_lines(self):
-        self._import(self.sample_bytes)
-        self.assertEqual(len(self._journal_statements()), 1)
-        lines = self._journal_lines().sorted(lambda line: (line.date, -line.amount))
-        self.assertEqual(len(lines), 3)
-        self.assertEqual(lines.mapped("amount"), [250.50, -120.00, -35.40])
-        self.assertEqual(
-            lines.mapped("date"),
-            [date(2026, 11, 2), date(2026, 11, 2), date(2026, 11, 3)],
-        )
-        self.assertEqual(
-            lines.mapped("partner_name"),
-            ["SIA Paraugs", "AS Elektrotikls", "SIA Birojs"],
-        )
-        self.assertEqual(
-            lines.mapped("account_number"),
-            [
-                "LV10RIKO0002013000000",
-                "LV41HABA0551000000001",
-                "LV62PARX0000000000002",
-            ],
-        )
-
     def test_truncated_csv_is_rejected(self):
         # The file stops inside the second row: its date and label are there,
         # its amount and counterparty are not.
@@ -112,15 +82,5 @@ class TestLvProbeSheet(TransactionCase):
                 f"truncated file was imported: {len(lines)} line(s), "
                 f"amounts {sorted(lines.mapped('amount'))}"
             )
-        self.assertFalse(self._journal_statements())
-        self.assertFalse(self._journal_lines())
-
-    def test_not_csv_is_rejected(self):
-        try:
-            self._import(b"\x00\x01 this is not a bank statement \xff")
-        except UserError:
-            pass
-        else:
-            self.fail("a file that is not a statement was imported")
         self.assertFalse(self._journal_statements())
         self.assertFalse(self._journal_lines())

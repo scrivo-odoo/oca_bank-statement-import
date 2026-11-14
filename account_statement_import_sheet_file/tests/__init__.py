@@ -1,4 +1,4 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from . import test_account_statement_import_sheet_file
-from . import test_lv_probe
+from . import test_truncated_file

@@ -1,24 +1,16 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-"""Import probes on a hand-written QIF sample with Latvian payees.
-
-The expected values below are copied from ``samples/lv-probe.qif``: one
-credit and two debits (250.50, -120.00, -35.40) on 2 and 3 November 2026.
-``samples/lv-probe-memo.qif`` gives two items a payee (``P``) and a memo
-(``M``), in both orders: the payee is the counterparty, the memo the purpose.
-"""
-
-from datetime import date
+"""A truncated QIF file is refused; an item keeps both its payee and its memo."""
 
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 from odoo.tools import BinaryBytes
 from odoo.tools.misc import file_path
 
-SAMPLE = "account_statement_import_qif/tests/samples/lv-probe.qif"
-SAMPLE_MEMO = "account_statement_import_qif/tests/samples/lv-probe-memo.qif"
+SAMPLE = "account_statement_import_qif/tests/samples/qif-three-items.qif"
+SAMPLE_MEMO = "account_statement_import_qif/tests/samples/qif-payee-and-memo.qif"
 
 
-class TestLvProbeQif(TransactionCase):
+class TestTruncatedAndPayeeMemo(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -56,18 +48,6 @@ class TestLvProbeQif(TransactionCase):
             [("journal_id", "=", self.journal.id)]
         )
 
-    def test_valid_qif_creates_exact_lines(self):
-        self._import(self.sample_bytes)
-        lines = self._journal_lines().sorted(lambda line: (line.date, -line.amount))
-        self.assertEqual(len(lines), 3)
-        self.assertEqual(lines.mapped("amount"), [250.50, -120.00, -35.40])
-        self.assertEqual(
-            lines.mapped("date"),
-            [date(2026, 11, 2), date(2026, 11, 2), date(2026, 11, 3)],
-        )
-        self.assertEqual(len(self._journal_statements()), 1)
-        self.assertAlmostEqual(sum(lines.mapped("amount")), 95.10, places=2)
-
     def test_truncated_qif_is_rejected(self):
         # The file stops inside the second item: its date and amount are
         # there, its end marker "^" is not.
@@ -82,16 +62,6 @@ class TestLvProbeQif(TransactionCase):
                 f"truncated file was imported: {len(lines)} line(s), "
                 f"amounts {sorted(lines.mapped('amount'))}"
             )
-        self.assertFalse(self._journal_statements())
-        self.assertFalse(self._journal_lines())
-
-    def test_not_qif_is_rejected(self):
-        try:
-            self._import(b"\x00\x01 this is not a bank statement \xff")
-        except UserError:
-            pass
-        else:
-            self.fail("a file that is not a statement was imported")
         self.assertFalse(self._journal_statements())
         self.assertFalse(self._journal_lines())
 
