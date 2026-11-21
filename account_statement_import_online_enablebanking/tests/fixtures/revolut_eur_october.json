@@ -1,0 +1,259 @@
+[
+ {
+  "booking_date": "2026-10-01",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Cloud Seller Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0001",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "90.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-02"
+ },
+ {
+  "booking_date": "2026-10-03",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Shop Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0002",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "23.45",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-03"
+ },
+ {
+  "booking_date": "2026-10-04",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Streaming Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0003",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "9.99",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-05"
+ },
+ {
+  "booking_date": "2026-10-06",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Hardware Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0004",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "310.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-07"
+ },
+ {
+  "booking_date": "2026-10-08",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Transport Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0005",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "47.20",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-08"
+ },
+ {
+  "booking_date": "2026-10-10",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Parking Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0006",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "12.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-11"
+ },
+ {
+  "booking_date": "2026-10-12",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Hotel Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0007",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "75.50",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-13"
+ },
+ {
+  "booking_date": "2026-10-14",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Kiosk Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0008",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "5.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-14"
+ },
+ {
+  "booking_date": "2026-10-16",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Training Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0009",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "150.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-17"
+ },
+ {
+  "booking_date": "2026-10-20",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Restaurant Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0010",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "64.80",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-21"
+ },
+ {
+  "booking_date": "2026-10-24",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Taxi Test"
+  },
+  "debtor": {
+   "name": "Test Firm SIA"
+  },
+  "entry_reference": "REV-0011",
+  "remittance_information": [
+   "Card payment"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "8.40",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-24"
+ },
+ {
+  "booking_date": "2026-10-27",
+  "credit_debit_indicator": "CRDT",
+  "creditor": {},
+  "debtor": {
+   "name": "Client Test Ltd"
+  },
+  "debtor_account": {
+   "iban": "LT00TEST000000000001"
+  },
+  "entry_reference": "REV-0012",
+  "remittance_information": [
+   "Invoice 2026-12 paid"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1500.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-28"
+ },
+ {
+  "booking_date": "2026-10-09",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {},
+  "debtor": {},
+  "entry_reference": "REV-0013",
+  "remittance_information": [
+   "Card authorisation"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "0.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-09"
+ }
+]

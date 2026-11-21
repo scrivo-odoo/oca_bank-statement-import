@@ -1,0 +1,170 @@
+[
+ {
+  "booking_date": "2026-10-02",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Fuel Station Test"
+  },
+  "creditor_account": {
+   "iban": "LV00TEST0000000000001"
+  },
+  "debtor_account": {
+   "iban": "LV80BANK0000435195001"
+  },
+  "entry_reference": "SEB-0001",
+  "reference_number": "RF01",
+  "remittance_information": [
+   "Fuel 02.10"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "33.10",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-02"
+ },
+ {
+  "booking_date": "2026-10-05",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Software Seller Test"
+  },
+  "creditor_account": {
+   "iban": "LV00TEST0000000000002"
+  },
+  "debtor_account": {
+   "iban": "LV80BANK0000435195001"
+  },
+  "entry_reference": "SEB-0002",
+  "reference_number": "RF02",
+  "remittance_information": [
+   "Subscription October"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "18.99",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-05"
+ },
+ {
+  "booking_date": "2026-10-09",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Office Landlord Test"
+  },
+  "creditor_account": {
+   "iban": "LV00TEST0000000000003"
+  },
+  "debtor_account": {
+   "iban": "LV80BANK0000435195001"
+  },
+  "entry_reference": "SEB-0003",
+  "reference_number": "RF03",
+  "remittance_information": [
+   "Rent October"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "120.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-09"
+ },
+ {
+  "booking_date": "2026-10-13",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Bank Fee Test"
+  },
+  "creditor_account": {
+   "iban": "LV00TEST0000000000004"
+  },
+  "debtor_account": {
+   "iban": "LV80BANK0000435195001"
+  },
+  "entry_reference": "SEB-0004",
+  "reference_number": "RF04",
+  "remittance_information": [
+   "Account fee"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "7.30",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-13"
+ },
+ {
+  "booking_date": "2026-10-17",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Contractor Test"
+  },
+  "creditor_account": {
+   "iban": "LV00TEST0000000000005"
+  },
+  "debtor_account": {
+   "iban": "LV80BANK0000435195001"
+  },
+  "entry_reference": "SEB-0005",
+  "reference_number": "RF05",
+  "remittance_information": [
+   "Invoice 2026-17"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "2250.01",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-17"
+ },
+ {
+  "booking_date": "2026-10-23",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Telecom Test"
+  },
+  "creditor_account": {
+   "iban": "LV00TEST0000000000006"
+  },
+  "debtor_account": {
+   "iban": "LV80BANK0000435195001"
+  },
+  "entry_reference": "SEB-0006",
+  "reference_number": "RF06",
+  "remittance_information": [
+   "Phone October"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "64.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-23"
+ },
+ {
+  "booking_date": "2026-10-29",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Courier Test"
+  },
+  "creditor_account": {
+   "iban": "LV00TEST0000000000007"
+  },
+  "debtor_account": {
+   "iban": "LV80BANK0000435195001"
+  },
+  "entry_reference": "SEB-0007",
+  "reference_number": "RF07",
+  "remittance_information": [
+   "Parcel"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "12.00",
+   "currency": "EUR"
+  },
+  "value_date": "2026-10-29"
+ }
+]
