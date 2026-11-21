@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_enablebanking_application_accounting,enablebanking.application:account.group_account_user,enablebanking.application,account.group_account_user,r,
+access_enablebanking_application_system,enablebanking.application:base.group_system,enablebanking.application,base.group_system,crud,
+enablebanking_application_multicompany,Enable Banking application multi-company,enablebanking.application,,crud,"[('company_id','in',company_ids)]"

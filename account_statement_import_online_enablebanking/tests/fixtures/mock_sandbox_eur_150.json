@@ -1,0 +1,5076 @@
+[
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Other"
+  },
+  "booking_date": "2021-09-14",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "091005VA5M",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Sale Fingerprint B"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "359.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-14"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Other"
+  },
+  "booking_date": "2021-09-13",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "090905TDIM",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Sale Apple Inc."
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "3724.73",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-09-13",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Fdb Kvickly Dalum    ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1838010709",
+  "merchant_category_code": "5411",
+  "reference_number": null,
+  "remittance_information": [
+   "Fdb Kvickly Dalum    ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "30.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-13",
+  "credit_debit_indicator": "CRDT",
+  "creditor": {
+   "name": "DSB NETBUTIK       80949",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "5605697488",
+  "merchant_category_code": "4011",
+  "reference_number": null,
+  "remittance_information": [
+   "DSB NETBUTIK       80949"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "117.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-13",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "DSB NETBUTIK       59050",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "5605697640",
+  "merchant_category_code": "4011",
+  "reference_number": null,
+  "remittance_information": [
+   "DSB NETBUTIK       59050"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "76.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-13",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Anna Ronten",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0275635",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Anna Ronten"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "230.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-11",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Lene Sorensen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0139253",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Lene Sorensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "240.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-11"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-10",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "DSB NETBUTIK       80949",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "5305613418",
+  "merchant_category_code": "4011",
+  "reference_number": null,
+  "remittance_information": [
+   "DSB NETBUTIK       80949"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "117.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-10"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-09",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 34553222",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "D2QHOZXI1R",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "82.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-09",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay: WeShare",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "9191799",
+  "merchant_category_code": "5999",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay: WeShare"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "839.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-08",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay EASY PARK A/S",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3355939",
+  "merchant_category_code": "4899",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay EASY PARK A/S"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "21.58",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-08"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-07",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay EASY PARK A/S",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "7520716",
+  "merchant_category_code": "4899",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay EASY PARK A/S"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "39.64",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-07",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "DSB NETBUTIK       23108",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "5005658901",
+  "merchant_category_code": "4011",
+  "reference_number": null,
+  "remittance_information": [
+   "DSB NETBUTIK       23108"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "352.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-07",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "DSB NETBUTIK       27196",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "5005660192",
+  "merchant_category_code": "4011",
+  "reference_number": null,
+  "remittance_information": [
+   "DSB NETBUTIK       27196"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "274.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-07",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "DSB NETBUTIK       24793",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "5005659429",
+  "merchant_category_code": "4011",
+  "reference_number": null,
+  "remittance_information": [
+   "DSB NETBUTIK       24793"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "277.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-07",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "DSB NETBUTIK       25966",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "5005659785",
+  "merchant_category_code": "4011",
+  "reference_number": null,
+  "remittance_information": [
+   "DSB NETBUTIK       25966"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "198.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-06",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001264475",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "CARLSLUND APS\\ \\ODENSE SV\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "594.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-06"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-04",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "CGRWPEPK1R",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Anna Ronten"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "198.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-04"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-04",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay SPIR Danmark",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "4552577",
+  "merchant_category_code": "8398",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay SPIR Danmark"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-04"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-09-03",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Telmore",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1791992665",
+  "merchant_category_code": "4812",
+  "reference_number": null,
+  "remittance_information": [
+   "Telmore"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "158.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-03"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-03",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001230998",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "LOOKFANTASTIC.COM\\ \\01618131710  \\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "114.61",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-03"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-03",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "CC3OXBCK1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Christina Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "198.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-03"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-02",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001206872",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Zalando Payments GmbH\\ \\Berlin\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "496.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-09-02",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3105708106",
+    "issuer": null,
+    "scheme_name": "OTHI"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "407L124585",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Til F\u00e6lles opsparing\nWe have transferred the amount to:\n3098 3105708106"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "35000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-09-02",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "mytrendyphone.dk   11580",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "4505619279",
+  "merchant_category_code": "4812",
+  "reference_number": null,
+  "remittance_information": [
+   "mytrendyphone.dk   11580"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "164.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-02",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: ?????"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "341.25",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-09-02",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Christina Nielsen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0778382",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Christina Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "41.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedDirectDebits",
+   "description": null,
+   "sub_code": "DirectDebitPayment"
+  },
+  "booking_date": "2021-09-01",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0000000000",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Hamm & Steenfeldt Optik"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "188.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-01"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-09-01",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "webshop.sport-solu 02809",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "4405630078",
+  "merchant_category_code": "7997",
+  "reference_number": null,
+  "remittance_information": [
+   "webshop.sport-solu 02809"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "188.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-09-01"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-08-31",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": {
+   "name": "AXB LTD A/S",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "debtor_account": null,
+  "entry_reference": "4597092474",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Transfer of salary\nWe have received the following payment from:\nAXB LTD A/S\nC/O AXB A/\nBYTOFTEN 19, 1\n5210  ODENSE"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "21342.33",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-31"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-08-31",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3105708106",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3105708106",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Opsparing"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "10000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-31"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-08-31",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3342223455",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3342223455",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Mad"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1500.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-31"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-08-31",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Husleje"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1363.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-31"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-08-31",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "El"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "200.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-31"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-08-31",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "TV"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "65.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-31"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-08-31",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MY Restaurant &",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1772342761",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "MY Restaurant &"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1365.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-31"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-08-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Fakta 57             ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1772399447",
+  "merchant_category_code": "5411",
+  "reference_number": null,
+  "remittance_information": [
+   "Fakta 57             ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "223.65",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-27",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "3523 APCOA PARKING 97229",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "2381706160",
+  "merchant_category_code": "7523",
+  "reference_number": null,
+  "remittance_information": [
+   "3523 APCOA PARKING 97229"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "42.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-27"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-08-27",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "7289265085",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "GoMore\nEndToEndID: 1204282"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "10302.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-27"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-08-27",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Foetexodense",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1761898719",
+  "merchant_category_code": "5411",
+  "reference_number": null,
+  "remittance_information": [
+   "Foetexodense"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "101.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-27"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-08-26",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "01783446",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Transfer"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "11000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-26"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-26",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay WENDORFF",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "4746119",
+  "merchant_category_code": "5462",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay WENDORFF"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "12.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-26"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-25",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "portal.postnord.co 15703",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1082468837",
+  "merchant_category_code": "4215",
+  "reference_number": null,
+  "remittance_information": [
+   "portal.postnord.co 15703"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "66.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-25"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-24",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "82Y676VC1D",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "600.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-24"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-24",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "82Y8F6KI1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "725.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-24"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-22",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay: WeShare",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3153909",
+  "merchant_category_code": "5999",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay: WeShare"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "112.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-22"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-22",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "8LMTHRAA1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Mathilde Jessen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "85.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-22"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-20",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001238872",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Zalando Payments GmbH\\ \\Berlin\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "496.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-20"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-08-17",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Wolt",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1715515537",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "Wolt"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "195.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-17"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-17",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Mikkel Jorgensen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "1955575",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Mikkel Jorgensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "118.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-17"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-17",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "RistoranteBlueAdam )))) 66839",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0598478209",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "RistoranteBlueAdam )))) 66839"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "85.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-17"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-16",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Storms Pakhus )))) 12696",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1081361269",
+  "merchant_category_code": "7394",
+  "reference_number": null,
+  "remittance_information": [
+   "Storms Pakhus )))) 12696"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "150.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-16"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-16",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Bloomit Odense ApS )))) 63041",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "2281603929",
+  "merchant_category_code": "5992",
+  "reference_number": null,
+  "remittance_information": [
+   "Bloomit Odense ApS )))) 63041"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "725.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-16"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "NotAvailable",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-08-13",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "146E04104024625A",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Apple Inc.   3022947583"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "4.74",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-12"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-12",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Emma Nielsen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "4886726",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "114.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-12"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-08-11",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "IKEA - 172 - IF      ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1690150201",
+  "merchant_category_code": "5712",
+  "reference_number": null,
+  "remittance_information": [
+   "IKEA - 172 - IF      ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "25.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-11"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-11",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay \u00d8rnberg Vin ApS",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0324671",
+  "merchant_category_code": "5499",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay \u00d8rnberg Vin ApS"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "610.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-11"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-08-10",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "otay-shop.dk       8-213",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "2105620278",
+  "merchant_category_code": "5621",
+  "reference_number": null,
+  "remittance_information": [
+   "otay-shop.dk       8-213"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "2989.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-10"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-04",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001202667",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "LOOKFANTASTIC.COM\\ \\01618131710  \\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "115.35",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-04"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-08-03",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001277601",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "OCULUS *JT3546T4S2\\ \\oculus.com\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "134.4",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-03"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-08-03",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Telmore",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1652284749",
+  "merchant_category_code": "4812",
+  "reference_number": null,
+  "remittance_information": [
+   "Telmore"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "129.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-03"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-08-03",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "2MB786IE1R",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Tina Vilhelmsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1350.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-03"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-08-03",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3099521589",
+    "issuer": null,
+    "scheme_name": "OTHI"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "187L121588",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Til Firma Konto\nWe have transferred the amount to:\n3098 3099521589"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1350.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-03"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedDirectDebits",
+   "description": null,
+   "sub_code": "DirectDebitPayment"
+  },
+  "booking_date": "2021-08-02",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0000000000",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Hamm & Steenfeldt Optik"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "188.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-08-02",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "iZ *Jans Keramik I   ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1638662663",
+  "merchant_category_code": "5971",
+  "reference_number": null,
+  "remittance_information": [
+   "iZ *Jans Keramik I   ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "280.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-08-02",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "webshop.sport-solu 16592",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "1305661722",
+  "merchant_category_code": "7997",
+  "reference_number": null,
+  "remittance_information": [
+   "webshop.sport-solu 16592"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "188.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-08-02"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-07-30",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": {
+   "name": "AXB LTD A/S",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "debtor_account": null,
+  "entry_reference": "4597092474",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Transfer of salary\nWe have received the following payment from:\nAXB LTD A/S\nC/O AXB A/\nBYTOFTEN 19, 1\n5210  ODENSE"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "21342.33",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-07-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3105708106",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3105708106",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Opsparing"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "10000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-07-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3342223455",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3342223455",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Mad"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1500.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-07-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Husleje"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1363.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-07-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "El"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "200.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-07-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "TV"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "65.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-28",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: Bowling | Chicago"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "303.45",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-28"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-26",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: Bowling | Chicago"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "104.85",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-26"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-07-26",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Boss Cykler )))) 05336",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "2071460375",
+  "merchant_category_code": "5940",
+  "reference_number": null,
+  "remittance_information": [
+   "Boss Cykler )))) 05336"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "189.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-26"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-25",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Bjarke Clausen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "6079672",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Bjarke Clausen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "600.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-25"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-23",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Brohuset Hammershus",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "2588314",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Brohuset Hammershus"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "25.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-23"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-21",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Christian Sorensen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3275196",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Christian Sorensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "198.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-21"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-07-19",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Imerco Dalum         ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1582225247",
+  "merchant_category_code": "5251",
+  "reference_number": null,
+  "remittance_information": [
+   "Imerco Dalum         ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "199.9",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-19"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-18",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay EASY PARK A/S",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "2189860",
+  "merchant_category_code": "4789",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay EASY PARK A/S"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "20.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-18"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-17",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "XDNNCDIC1D",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Lene Sorensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "400.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-17"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-16",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "W6LHOIBO1D",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Lene Sorensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "200.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-16"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-07-15",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Karisma              ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1570306861",
+  "merchant_category_code": "5621",
+  "reference_number": null,
+  "remittance_information": [
+   "Karisma              ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "540.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-07-15",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "www.trydeandres.dk 24741",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "9505659115",
+  "merchant_category_code": "5631",
+  "reference_number": null,
+  "remittance_information": [
+   "www.trydeandres.dk 24741"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "799.9",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-15",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay baneg\u00e5rdsshawarma",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "6785800",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay baneg\u00e5rdsshawarma"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "170.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-15",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "WVGOPYMS1D",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Anna Bonven"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-07-15",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3099521589",
+    "issuer": null,
+    "scheme_name": "OTHI"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "568Y119658",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Til Firma Konto\nWe have transferred the amount to:\n3098 3099521589"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-07-15",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": {
+   "name": "ELLA HANSEN",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "debtor_account": null,
+  "entry_reference": "630Y119659",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Fra Mad\nWe have received the following payment from:\nELLA HANSEN\nIDA JENSEN\nGYLDENL\u00d8VESGADE 18, 2, TH\n5000  ODENSE C"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "170.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Reimbursement(Generic)"
+  },
+  "booking_date": "2021-07-14",
+  "credit_debit_indicator": "CRDT",
+  "creditor": {
+   "name": "Disney Plus",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0000005026",
+  "merchant_category_code": "4899",
+  "reference_number": null,
+  "remittance_information": [
+   "Disney Plus"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "78.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-14"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Reimbursement(Generic)"
+  },
+  "booking_date": "2021-07-14",
+  "credit_debit_indicator": "CRDT",
+  "creditor": {
+   "name": "Disney Plus",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0000005027",
+  "merchant_category_code": "4899",
+  "reference_number": null,
+  "remittance_information": [
+   "Disney Plus"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "79.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-14"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-07-13",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0001226527",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "SUNU.DK (MAD ONLINE)\\ \\FREDERICIA\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "456.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-07-13",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "SP * ZITSTICKA UK",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1556671515",
+  "merchant_category_code": "5977",
+  "reference_number": null,
+  "remittance_information": [
+   "SP * ZITSTICKA UK\nAmount                   GBP 73.00\nRate                     869.389\nExchanged amount         634.61\nExchange rate mark-up of 9.51\nExchange rate mark-up (%)1.50\nPurchase Date            10.07.2021"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "644.17",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-07-13",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Wolt",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1556174019",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "Wolt"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "119.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-07-13",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": {
+   "name": "ELLA HANSEN",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "debtor_account": null,
+  "entry_reference": "243X119467",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Fra F\u00e6lles opsparing\nWe have received the following payment from:\nELLA HANSEN\nGYLDENL\u00d8VESGADE 18, 2 TH\n5000  ODENSE C"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "10000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-13"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-07-12",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Madklubben Odense )))) 19122",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1070991912",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "Madklubben Odense )))) 19122"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1055.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-12"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-11",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Emma Nielsen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0609686",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "107.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-11"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-07-11",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3099521589",
+    "issuer": null,
+    "scheme_name": "OTHI"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "817V119229",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Til Firma Konto\nWe have transferred the amount to:\n3098 3099521589"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-11"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-07-09",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0001264134",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "SUNU.DK (MAD ONLINE)\\ \\FREDERICIA\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "719.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-09",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UY34LW1E1D",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Kristian Egstrand Anderse"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "335.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-09",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UY37LUXA1R",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Maria Brylle"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "385.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-09",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Maria Brylle",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "1752742",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Maria Brylle"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "95.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-09",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UZU04U2A1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Maria Brylle"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "95.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-09",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Kristian Egstrand Anderse",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3314586",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Kristian Egstrand Anderse"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "285.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-09"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-08",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UNFWXJ2O1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Gitte Kofod"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-08"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-07-08",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "1149 0100873266",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "669V118993",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Saxobank\nWe have transferred the amount to:\n1149 0100873266"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "10000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-08"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-08",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Emma Nielsen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "8758650",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1973.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-08"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-07",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UC4E3FAG1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Sofie Bommersholdt"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "79.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-07",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UC4HPW4K1R",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Niels Midjord Bommershold"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "115.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-07",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UC4I3AXQ1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Mads Klejs Vilhelmsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "20.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-07",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UC4KZ48Q1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Marie Midjord Bommershold"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "90.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-07",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UC4S8IIS1F",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Mia Vilhelmsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "75.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-07",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UC42PDOI1R",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Christian Sorensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "119.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-07",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "UC43VZJM1B",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Sofie Ingeberg Christense"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "98.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-07"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-06",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Emma Nielsen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "4139417",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "273.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-06"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-07-06",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Mikkel Jorgensen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "6456750",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Mikkel Jorgensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "50.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-06"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-07-05",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Telmore",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1508279179",
+  "merchant_category_code": "4812",
+  "reference_number": null,
+  "remittance_information": [
+   "Telmore"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "129.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-05"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-07-05",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001214921",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "LOOKFANTASTIC.COM\\ \\01618131710  \\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "114.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-05"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedDirectDebits",
+   "description": null,
+   "sub_code": "DirectDebitPayment"
+  },
+  "booking_date": "2021-07-01",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0000000000",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Hamm & Steenfeldt Optik"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "188.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-01"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedDirectDebits",
+   "description": null,
+   "sub_code": "DirectDebitPayment"
+  },
+  "booking_date": "2021-07-01",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0000000000",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Akademikernes A-Kasse"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1401.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-01"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-07-01",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "CIRCLE K HJALLESEVEJ ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1500868549",
+  "merchant_category_code": "5541",
+  "reference_number": null,
+  "remittance_information": [
+   "CIRCLE K HJALLESEVEJ ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "25.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-01"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-07-01",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "webshop.sport-solu 42505",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "8205606915",
+  "merchant_category_code": "7997",
+  "reference_number": null,
+  "remittance_information": [
+   "webshop.sport-solu 42505"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "188.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-07-01"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-06-30",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": {
+   "name": "AXB LTD A/S",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "debtor_account": null,
+  "entry_reference": "4597092474",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Transfer of salary\nWe have received the following payment from:\nAXB LTD A/S\nC/O AXB A/\nBYTOFTEN 19, 1\n5210  ODENSE"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "21342.33",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-06-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3105708106",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3105708106",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Opsparing"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "10000.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-06-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3342223455",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3342223455",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Mad"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1500.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-06-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Husleje"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1363.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-06-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "El"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "200.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "AutomaticTransfer"
+  },
+  "booking_date": "2021-06-30",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3567743333",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3567743333",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "TV"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "65.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-30"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-06-29",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "2038755634",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "OVERSKYDENDE SKAT"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "2.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-29"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-29",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: Netv\u00e6rk"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "45.46",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-29"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-26",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Emma Nielsen",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "9418477",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Emma Nielsen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "42.5",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-26"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-26",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: Netv\u00e6rk"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "45.45",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-26"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-06-25",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Ristorante Blue Adam ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1473534339",
+  "merchant_category_code": "5812",
+  "reference_number": null,
+  "remittance_information": [
+   "Ristorante Blue Adam ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "306.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-25"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-25",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: Netv\u00e6rk"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "45.45",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-25"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-25",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: Netv\u00e6rk"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "45.46",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-25"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-25",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "3845245274",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "WeShare: Netv\u00e6rk"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "45.46",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-25"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Cross-BorderCreditCardPayment"
+  },
+  "booking_date": "2021-06-24",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Disney Plus",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1470529939",
+  "merchant_category_code": "4899",
+  "reference_number": null,
+  "remittance_information": [
+   "Disney Plus"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "79.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-24"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-06-23",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Repairhouse ApS      ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1467242179",
+  "merchant_category_code": "4812",
+  "reference_number": null,
+  "remittance_information": [
+   "Repairhouse ApS      ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "150.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-23"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "NotAvailable"
+  },
+  "booking_date": "2021-06-23",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Storms Pakhus        ))))",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1469711245",
+  "merchant_category_code": "7394",
+  "reference_number": null,
+  "remittance_information": [
+   "Storms Pakhus        ))))"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "120.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-23"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-06-23",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0001270214",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "SUNU.DK (MAD ONLINE)\\ \\FREDERICIA\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "92.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-23"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-06-22",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "0001281025",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MITGRONNEHJEM.DK\\ \\AARHUS C\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "211.4",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-22"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Cross-BorderCreditCardPayment"
+  },
+  "booking_date": "2021-06-22",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "SC* ENTREPRENEUR STO",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1459702175",
+  "merchant_category_code": "5734",
+  "reference_number": null,
+  "remittance_information": [
+   "SC* ENTREPRENEUR STO\nAmount                   USD 25.00\nRate                     627.203\nExchanged amount         156.92\nExchange rate mark-up of 3.13\nExchange rate mark-up (%)2.00\nPurchase Date            20.06.2021"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "159.93",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-22"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-22",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "MobilePay Mads Fogh H\u00f8ffer",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "5155656",
+  "merchant_category_code": "4829",
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Mads Fogh H\u00f8ffer"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "75.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-22"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MerchantCardTransactions",
+   "description": null,
+   "sub_code": "Point-of-Sale(POS)Payment"
+  },
+  "booking_date": "2021-06-19",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "4183 12081898",
+    "issuer": null,
+    "scheme_name": "BANK"
+   }
+  },
+  "entry_reference": "OMWZC8WM1R",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MobilePay Lene Sorensen"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "270.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-19"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "Cross-BorderCreditCardPayment"
+  },
+  "booking_date": "2021-06-18",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "Disney Plus",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "233111XXXXXX4455",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "1439937619",
+  "merchant_category_code": "4899",
+  "reference_number": null,
+  "remittance_information": [
+   "Disney Plus"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "78.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-18"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-06-18",
+  "credit_debit_indicator": "DBIT",
+  "creditor": {
+   "name": "matas.dk           99739",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "6905699647",
+  "merchant_category_code": "5977",
+  "reference_number": null,
+  "remittance_information": [
+   "matas.dk           99739"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "1216.83",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-18"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "MiscellaneousDebitOperations",
+   "description": null,
+   "sub_code": "Charges(Generic)"
+  },
+  "booking_date": "2021-06-17",
+  "credit_debit_indicator": "CRDT",
+  "creditor": {
+   "name": "booztlet.com       84411",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "6805608556",
+  "merchant_category_code": "5651",
+  "reference_number": null,
+  "remittance_information": [
+   "booztlet.com       84411"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "4953.52",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-17"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-06-15",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001231872",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MATCHi - 28853140\\ \\Goeteborg\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "200.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "CustomerCardTransactions",
+   "description": null,
+   "sub_code": "CreditCardPayment"
+  },
+  "booking_date": "2021-06-15",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": null,
+  "debtor_account": {
+   "iban": null,
+   "other": {
+    "identification": "2345533245",
+    "issuer": null,
+    "scheme_name": "CPAN"
+   }
+  },
+  "entry_reference": "0001200494",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "MATCHi - 28853123\\ \\Goeteborg\\"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "200.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "IssuedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-06-15",
+  "credit_debit_indicator": "DBIT",
+  "creditor": null,
+  "creditor_account": {
+   "iban": null,
+   "other": {
+    "identification": "3099521589",
+    "issuer": null,
+    "scheme_name": "OTHI"
+   }
+  },
+  "debtor": null,
+  "debtor_account": null,
+  "entry_reference": "269X116663",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Til Firma Konto\nWe have transferred the amount to:\n3098 3099521589"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "675.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-15"
+ },
+ {
+  "balance_after_transaction": null,
+  "bank_transaction_code": {
+   "code": "ReceivedCreditTransfers",
+   "description": null,
+   "sub_code": "DomesticCreditTransfer"
+  },
+  "booking_date": "2021-06-15",
+  "credit_debit_indicator": "CRDT",
+  "creditor": null,
+  "creditor_account": null,
+  "debtor": {
+   "name": "IDA JENSEN",
+   "organisation_id": null,
+   "postal_address": null,
+   "private_id": null
+  },
+  "debtor_account": null,
+  "entry_reference": "024X116664",
+  "merchant_category_code": null,
+  "reference_number": null,
+  "remittance_information": [
+   "Fra Firma Konto\nWe have received the following payment from:\nIDA JENSEN\nGYLDENL\u00d8VESGADE 18, 2 TH\n5000  ODENSE C"
+  ],
+  "status": "BOOK",
+  "transaction_amount": {
+   "amount": "675.0",
+   "currency": "EUR"
+  },
+  "transaction_date": null,
+  "value_date": "2021-06-15"
+ }
+]
