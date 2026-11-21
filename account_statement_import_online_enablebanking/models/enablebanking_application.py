@@ -297,6 +297,39 @@ class EnablebankingApplication(models.Model):
 
         return jwt
 
+    def _enablebanking_max_validity(self, headers):
+        """The longest consent the bank allows, less an hour so that a slow clock cannot make the request exceed it.
+
+        valid_until cannot exceed now + maximum_consent_validity of the bank in GET /aspsps (180 days for most banks): the longer
+        the consent, the more rarely the owner has to go to the bank to renew it.
+        """
+        self.ensure_one()
+        r = requests.get(
+            f"{self.api_origin}/aspsps",
+            params={"country": self.aspsp_country.code, "psu_type": self.psu_type},
+            headers=headers,
+            timeout=10,
+        )
+        if r.status_code != 200:
+            raise ValidationError(
+                self.env._(
+                    "Error response %(status_code)s: %(response_text)s",
+                    status_code=r.status_code,
+                    response_text=r.text,
+                )
+            )
+        for aspsp in r.json().get("aspsps", []):
+            if aspsp.get("name") == self.aspsp_name and aspsp.get("maximum_consent_validity"):
+                return timedelta(seconds=aspsp["maximum_consent_validity"]) - timedelta(hours=1)
+        raise UserError(
+            self.env._(
+                "The bank %(bank)s is not in the list of banks of Enable Banking for %(country)s (or gives no maximum consent validity): "
+                "get the ASPSP info again.",
+                bank=self.aspsp_name,
+                country=self.aspsp_country.code,
+            )
+        )
+
     def _enablebanking_authorize(self):
         """
         Enable Banking: authorization
@@ -306,18 +339,12 @@ class EnablebankingApplication(models.Model):
         base_headers = self._enablebanking_get_basic_headers(jwt)
         enablebanking_state = str(uuid.uuid4())
 
-        # Starting authorization
-        validity = 90
-        # TODO: fetch maximum validity from ASPSP information
-        if self.aspsp_name in ["Nordea", "OP"]:
-            validity = 180
+        # Starting authorization, for as long as the bank allows
+        validity = self._enablebanking_max_validity(base_headers)
 
         body = {
             "access": {
-                # Maximum validity 90 days
-                "valid_until": (
-                    datetime.now(timezone.utc) + timedelta(days=validity)
-                ).isoformat()
+                "valid_until": (datetime.now(timezone.utc) + validity).isoformat()
             },
             "aspsp": {"name": self.aspsp_name, "country": self.aspsp_country.code},
             "state": enablebanking_state,
