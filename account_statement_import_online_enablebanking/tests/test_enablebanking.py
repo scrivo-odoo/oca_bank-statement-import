@@ -13,7 +13,7 @@ returned for the two banks in October 2026 (the fields a line carries, the side 
 import json
 import os
 import tempfile
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
@@ -392,3 +392,53 @@ class TestTheKeyOfTheApplication(EnableBankingCase):
         self.assertNotIn("key", fields)
         self.assertNotIn("key_name", fields)
         self.assertNotIn("jwt", fields)
+
+
+@tagged("post_install", "-at_install")
+class TestTheTermOfTheConsent(EnableBankingCase):
+    """The consent is asked for as long as the bank allows: maximum_consent_validity of GET /aspsps, 180 days for most banks (faq.md of Enable Banking)."""
+
+    def authorize(self, aspsps):
+        posted = {}
+
+        def get(url, params=None, headers=None, timeout=None):
+            if url.endswith("/application"):
+                body = {"active": True, "redirect_urls": [self.application.redirect_url]}
+            elif url.endswith("/aspsps"):
+                body = {"aspsps": aspsps}
+            else:
+                raise AssertionError(url)
+            return SimpleNamespace(status_code=200, text="ok", json=lambda: body)
+
+        def post(url, json=None, headers=None, timeout=None):
+            posted.update(json)
+            return SimpleNamespace(status_code=200, text="ok", json=lambda: {"url": "https://bank.test/consent"})
+
+        self.application.aspsp_country = self.env.ref("base.lv")
+        application = self.registry["enablebanking.application"]
+        with mock.patch("requests.get", side_effect=get), mock.patch("requests.post", side_effect=post), mock.patch.object(
+            application, "_enablebanking_get_jwt_token", return_value="test-jwt"
+        ):
+            self.application.action_enablebanking_authenticate()
+        return posted
+
+    def asked_days(self, posted):
+        until = datetime.fromisoformat(posted["access"]["valid_until"])
+        return (until - datetime.now(timezone.utc)).total_seconds() / 86400
+
+    def test_a_bank_that_allows_a_hundred_and_eighty_days_is_asked_for_them(self):
+        posted = self.authorize(
+            [
+                {"name": "Test ASPSP", "country": "LV", "maximum_consent_validity": 15552000},
+                {"name": "Other Bank", "country": "LV", "maximum_consent_validity": 86400},
+            ]
+        )
+        self.assertTrue(179 < self.asked_days(posted) <= 180)
+
+    def test_a_bank_that_allows_ninety_days_is_asked_for_ninety(self):
+        posted = self.authorize([{"name": "Test ASPSP", "country": "LV", "maximum_consent_validity": 7776000}])
+        self.assertTrue(89 < self.asked_days(posted) <= 90)
+
+    def test_a_bank_the_list_does_not_hold_is_an_error_and_no_consent_is_asked(self):
+        with self.assertRaises(UserError):
+            self.authorize([{"name": "Other Bank", "country": "LV", "maximum_consent_validity": 15552000}])
