@@ -93,7 +93,7 @@ class EnablebankingApplication(models.Model):
                     )
 
     def _default_redirect_url(self):
-        url = self.env["ir.config_parameter"].sudo().get_param("web.base.url")
+        url = self.env["ir.config_parameter"].sudo().get_str("web.base.url")
         url += "/enablebanking_auth"
 
         return url

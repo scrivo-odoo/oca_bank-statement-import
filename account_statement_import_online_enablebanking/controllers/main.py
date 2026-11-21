@@ -59,7 +59,7 @@ class EnableBankingController(http.Controller):
         enablebanking.session = json.dumps(session)
 
         action = request.env.ref("account.action_account_journal_form")
-        base_url = request.env["ir.config_parameter"].sudo().get_param("web.base.url")
+        base_url = request.env["ir.config_parameter"].sudo().get_str("web.base.url")
 
         # Redirect back to journals view
         redirect_url = f"{base_url}/odoo/action-{action.id}"
