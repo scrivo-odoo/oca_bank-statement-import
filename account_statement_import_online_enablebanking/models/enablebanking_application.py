@@ -75,6 +75,23 @@ class EnablebankingApplication(models.Model):
         default=lambda self: self.env.company,
     )
 
+    @api.constrains("company_id")
+    def _check_company_of_providers(self):
+        """An application does not move to another company under a provider of the first: its session is the bank access of one firm."""
+        for application in self:
+            foreign = application.online_bank_statement_provider_ids.filtered(
+                lambda provider, application=application: provider.company_id != application.company_id
+            )
+            if foreign:
+                raise ValidationError(
+                    self.env._(
+                        "The application %(application)s is used by the journal(s) %(journals)s of another company: "
+                        "change those providers first.",
+                        application=application.application_id,
+                        journals=", ".join(foreign.mapped("journal_id.display_name")),
+                    )
+                )
+
     @api.onchange("user_id")
     def onchange_user_id(self):
         """
@@ -102,6 +119,18 @@ class EnablebankingApplication(models.Model):
             return {}
         return json.loads(self.session)
 
+    @staticmethod
+    def _enablebanking_utc(text):
+        """A date-time of the API as the naive UTC moment Odoo keeps.
+
+        The API writes moments with an offset (Z, +02:00, -02:00); dropping the offset as it is changes the moment. A moment
+        without an offset is read as UTC, as the API reference says of its dates.
+        """
+        moment = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        if moment.tzinfo is None:
+            moment = moment.replace(tzinfo=timezone.utc)
+        return moment.astimezone(timezone.utc).replace(tzinfo=None)
+
     def _compute_session_data(self):
         for record in self:
             session = record._get_session_dict()
@@ -117,12 +146,7 @@ class EnablebankingApplication(models.Model):
                 # Get valid until from session data
                 valid_until = session.get("access", {}).get("valid_until")
                 if valid_until:
-                    # Replace Z with +00:00 and remove timezone info
-                    valid_until = valid_until.replace("Z", "+00:00")
-                    valid_until = datetime.fromisoformat(valid_until).replace(
-                        tzinfo=None
-                    )
-                    vals["valid_until"] = valid_until
+                    vals["valid_until"] = self._enablebanking_utc(valid_until)
 
                 accounts = []
                 for account in session.get("accounts", []):
@@ -176,27 +200,35 @@ class EnablebankingApplication(models.Model):
 
         _logger.debug(f"ASPSP response: {r}")
 
-        aspsp_names = []
-
-        for aspsp in r.get("aspsps", []):
-            aspsp_name = aspsp.get("name")
-            aspsp_names.append(aspsp_name)
-
-            if aspsp.get("bic") and aspsp.get("bic") == bic:
-                self.aspsp_name = aspsp_name
-                self.aspsp_country = self.env["res.country"].search(
-                    [("code", "=", aspsp.get("country"))]
-                )
-
-        if not self.aspsp_name:
+        aspsps = r.get("aspsps", [])
+        # Banks of one group may share a BIC (the FAQ of Enable Banking says so): one match is a choice, none or several
+        # are a refusal, and the bank chosen earlier is neither kept nor replaced behind the owner's back.
+        bic = bic.strip().upper()
+        candidates = [a for a in aspsps if (a.get("bic") or "").strip().upper() == bic]
+        if not candidates:
             raise ValidationError(
                 self.env._(
-                    "Could not find ASPSP info. "
+                    "Could not find ASPSP info for the BIC %(bic)s. "
                     "Please check account type and your bank BIC. \n"
                     "Found ASPSPs: %(aspsp_names)s",
-                    aspsp_names=", ".join(aspsp_names),
+                    bic=bic,
+                    aspsp_names=", ".join(a.get("name") or "-" for a in aspsps),
                 )
             )
+        if len(candidates) > 1:
+            raise ValidationError(
+                self.env._(
+                    "%(count)s banks of Enable Banking have the BIC %(bic)s: %(aspsp_names)s. "
+                    "Set the ASPSP name and country of the application by hand.",
+                    count=len(candidates),
+                    bic=bic,
+                    aspsp_names=", ".join(f"{a.get('name')} ({a.get('country')})" for a in candidates),
+                )
+            )
+        self.aspsp_name = candidates[0].get("name")
+        self.aspsp_country = self.env["res.country"].search(
+            [("code", "=", candidates[0].get("country"))], limit=1
+        )
 
     def _enablebanking_get_basic_headers(self, jwt):
         base_headers = {"Authorization": f"Bearer {jwt}"}
@@ -318,9 +350,19 @@ class EnablebankingApplication(models.Model):
                     response_text=r.text,
                 )
             )
-        for aspsp in r.json().get("aspsps", []):
-            if aspsp.get("name") == self.aspsp_name and aspsp.get("maximum_consent_validity"):
-                return timedelta(seconds=aspsp["maximum_consent_validity"]) - timedelta(hours=1)
+        named = [aspsp for aspsp in r.json().get("aspsps", []) if aspsp.get("name") == self.aspsp_name]
+        if len(named) > 1:
+            raise UserError(
+                self.env._(
+                    "The bank %(bank)s is listed %(count)s times for %(country)s: the term of the consent cannot be told. "
+                    "Check the ASPSP name and country of the application.",
+                    bank=self.aspsp_name,
+                    count=len(named),
+                    country=self.aspsp_country.code,
+                )
+            )
+        if named and named[0].get("maximum_consent_validity"):
+            return timedelta(seconds=named[0]["maximum_consent_validity"]) - timedelta(hours=1)
         raise UserError(
             self.env._(
                 "The bank %(bank)s is not in the list of banks of Enable Banking for %(country)s (or gives no maximum consent validity): "

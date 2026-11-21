@@ -1,7 +1,8 @@
 import hashlib
+import json
 import logging
 from collections import Counter
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from decimal import Decimal
 
 import requests
@@ -10,6 +11,11 @@ from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
+
+# The API takes a window by the booking date of a line, and a line is dated by its value date when that is later. For a window
+# to find every line it takes, the value date counts up to this long after the booking and a pull reaches this far back before
+# its start. Recorded answers of the two banks: the value date is 0 or 1 day after the booking.
+VALUE_DATE_LAG = timedelta(days=7)
 
 
 class OnlineBankStatementProviderEnablebanking(models.Model):
@@ -43,6 +49,23 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
     enablebanking_user_id = fields.Many2one(
         related="enablebanking_application_id.user_id", readonly=True
     )
+
+    @api.constrains("enablebanking_application_id", "journal_id")
+    def _check_enablebanking_application_company(self):
+        """The session of an application is the bank access of one firm: a provider of another firm does not use it."""
+        for provider in self:
+            application = provider.enablebanking_application_id.sudo()
+            if application and application.company_id != provider.company_id:
+                raise ValidationError(
+                    self.env._(
+                        "The Enable Banking application %(application)s belongs to the company %(application_company)s, "
+                        "the journal %(journal)s to the company %(journal_company)s: a provider uses only the application of its own company.",
+                        application=application.application_id,
+                        application_company=application.company_id.display_name,
+                        journal=provider.journal_id.display_name,
+                        journal_company=provider.company_id.display_name,
+                    )
+                )
 
     @api.onchange("enablebanking_application_id")
     def onchange_enablebanking_application_id(self):
@@ -163,7 +186,7 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
             # API won't allow using a future date here
             date_until = datetime.now()
 
-        date_from = date_since.date().isoformat()
+        date_from = (date_since - VALUE_DATE_LAG).date().isoformat()
         date_to = date_until.date().isoformat()
         query = {
             "date_from": date_from,
@@ -253,18 +276,32 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
         return lines
 
     @staticmethod
-    def _enablebanking_digest(transaction):
-        """What a line says, whatever the bank calls it: dates, signed amount, currency, text."""
+    def _enablebanking_counterparty(transaction):
+        """The other side of the payment, as (name, IBAN): whom we paid when the money went out, who paid us when it came in."""
+        side = "creditor" if transaction.get("credit_debit_indicator") == "DBIT" else "debtor"
+        return (transaction.get(side) or {}).get("name"), (transaction.get(f"{side}_account") or {}).get("iban")
+
+    def _enablebanking_digest(self, transaction):
+        """What a line says, whatever the bank calls it: everything the line of the book shows, so that two different operations
+        of one day, amount and text (two payers, two invoices) never get one key.
+
+        The own side of the payment is left out: it is the account itself, and a bank that gives it in one answer and not in
+        the next would change the key of a line it already delivered.
+        """
         amount = Decimal(str(transaction["transaction_amount"]["amount"])).normalize()
+        name, iban = self._enablebanking_counterparty(transaction)
         parts = [
             transaction.get("booking_date") or "",
             transaction.get("value_date") or "",
             transaction.get("credit_debit_indicator") or "",
             format(amount, "f"),
             transaction["transaction_amount"].get("currency") or "",
-            " ".join(transaction.get("remittance_information") or []),
+            transaction.get("reference_number") or "",
+            transaction.get("remittance_information") or [],
+            name or "",
+            iban or "",
         ]
-        return hashlib.sha256("|".join(parts).encode()).hexdigest()[:16]
+        return hashlib.sha256(json.dumps(parts, ensure_ascii=False).encode()).hexdigest()[:16]
 
     @staticmethod
     def _enablebanking_key(transaction, digest, ordinal):
@@ -288,28 +325,7 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
         else:
             multiplier = 1
 
-        value_date = transaction.get("value_date")
-        booking_date = transaction.get("booking_date")
-
-        if not value_date or value_date < booking_date:
-            # Some banks don't seem to return a value date at all
-            # If value date is missing, we use booking date as value date.
-
-            # As value date may be some banking dates before booking date,
-            # we may also encounter a situation
-            # where we receive a transaction some days after the value date.
-            # This can be even 3-4 days on weekends.
-            # If a bank statement for that date is already handled in Odoo,
-            # the transaction is silently dropped.
-            # To avoid this, we set booking date as value date.
-            # The value date in Odoo will be wrong and might cause
-            # a slight miscalculation in overdue interest fee
-            value_date = booking_date
-
-        # The other side of the payment: whom we paid when the money went out, who paid us when it came in.
-        side = "creditor" if transaction_type == "DBIT" else "debtor"
-        partner_name = (transaction.get(side) or {}).get("name")
-        counterparty_iban = (transaction.get(f"{side}_account") or {}).get("iban")
+        partner_name, counterparty_iban = self._enablebanking_counterparty(transaction)
 
         ref = transaction.get("reference_number")
         remittance_information = " ".join(transaction.get("remittance_information") or [])
@@ -323,7 +339,7 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
 
         vals = {
             "sequence": sequence,
-            "date": value_date,
+            "date": self._enablebanking_line_date(transaction),
             "payment_ref": payment_ref,
             "ref": ref,
             "amount": float(transaction.get("transaction_amount").get("amount"))
@@ -333,14 +349,42 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
             "narration": remittance_information,
         }
 
-        # Try to find partner with exact name match
-        if partner_name != "" and partner_name is not None:
-            partner_id = (
-                self.env["res.partner"]
-                .sudo()
-                .search([("name", "=ilike", partner_name)], limit=1)
-            )
-            if partner_id:
-                vals["partner_id"] = partner_id.id
+        # The partner is the one with exactly this name. A name of two partners does not name either of them: the line comes
+        # without a partner, the name stays on it, and the log says why.
+        if partner_name:
+            partners = self.env["res.partner"].sudo().search([("name", "=ilike", partner_name)], limit=2)
+            if len(partners) == 1:
+                vals["partner_id"] = partners.id
+            elif partners:
+                _logger.info(
+                    "Enable Banking %s: more than one partner is named %r, the line %s comes without a partner",
+                    self.journal_id.display_name,
+                    partner_name,
+                    transaction.get("entry_reference") or "-",
+                )
 
         return vals
+
+    def _enablebanking_line_date(self, transaction):
+        """The day of a line: the day the money moved (value date); the booking date when the bank gives no value date or an
+        earlier one; never later than VALUE_DATE_LAG after the booking.
+
+        The API takes a window by the booking date and the base module takes a line by this date, so the two must not drift
+        apart: with the cap, a line dated in a window was booked at most VALUE_DATE_LAG before it, and a pull that reaches
+        VALUE_DATE_LAG back finds it. Without it a line valued weeks after its booking is dropped by the window that
+        returns it and never returned by the one that would take it.
+        """
+        booking = transaction.get("booking_date")
+        value = transaction.get("value_date")
+        if not booking and not value:
+            raise UserError(
+                self.env._(
+                    "The line %(reference)s of the bank has neither a booking date nor a value date: it cannot be put on a day.",
+                    reference=transaction.get("entry_reference") or "-",
+                )
+            )
+        if not booking:
+            return value
+        if not value or value < booking:
+            return booking
+        return min(value, (date.fromisoformat(booking) + VALUE_DATE_LAG).isoformat())

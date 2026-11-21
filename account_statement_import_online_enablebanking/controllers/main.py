@@ -16,13 +16,15 @@ class EnableBankingController(http.Controller):
     def enablebanking_auth(self, *args, **kwargs):
         auth_code = kwargs.get("code")
         enablebanking_state = kwargs.get("state")
+        # The application is found as the user who comes back from the bank, so the rule of the companies holds: a user
+        # sees only the applications of the own company. No state names no application, and one state names exactly one.
         enablebanking = (
-            request.env["enablebanking.application"]
-            .sudo()
-            .search([("enablebanking_state", "=", enablebanking_state)], limit=1)
+            request.env["enablebanking.application"].search([("enablebanking_state", "=", enablebanking_state)])
+            if enablebanking_state
+            else request.env["enablebanking.application"]
         )
 
-        if not enablebanking:
+        if len(enablebanking) != 1:
             raise ValidationError(
                 request.env._(
                     "Could not find EnableBanking application for state: %s",
@@ -56,7 +58,8 @@ class EnableBankingController(http.Controller):
                 )
             )
 
-        enablebanking.session = json.dumps(session)
+        # An accountant reads the application but does not write it; storing the session is this callback's job.
+        enablebanking.sudo().session = json.dumps(session)
 
         action = request.env.ref("account.action_account_journal_form")
         base_url = request.env["ir.config_parameter"].sudo().get_str("web.base.url")
