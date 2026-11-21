@@ -72,9 +72,13 @@ class FakeApi:
         if self.status != 200:
             return SimpleNamespace(status_code=self.status, text="denied", json=lambda: {"message": "denied"})
         uid = url.split("/accounts/")[1].split("/")[0]
-        rows = sorted(self.transactions_by_uid.get(uid, []), key=lambda t: t["booking_date"], reverse=True)
+        # A line the bank gives no booking date is filtered by its value date; one with neither date always comes.
+        def dated(t):
+            return t.get("booking_date") or t.get("value_date") or ""
+
+        rows = sorted(self.transactions_by_uid.get(uid, []), key=dated, reverse=True)
         low, high = params.get("date_from", ""), params.get("date_to", "9999-12-31")
-        rows = [t for t in rows if low <= t["booking_date"] <= high]
+        rows = [t for t in rows if not dated(t) or low <= dated(t) <= high]
         start = int(params.get("continuation_key", 0))
         body = {"transactions": rows[start : start + 10]}
         if start + 10 < len(rows):
