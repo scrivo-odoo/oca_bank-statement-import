@@ -29,9 +29,10 @@ class EnablebankingApplication(models.Model):
         help="Application ID from your EnableBanking.com portal",
         required=True,
     )
-    bank_id = fields.Many2one(
-        comodel_name="res.bank",
+    bank_bic = fields.Char(
+        string="Bank BIC",
         required=True,
+        help="BIC of the bank, as the bank account of the journal carries it (Odoo 20 has no res.bank).",
     )
     redirect_url = fields.Char(
         string="Redirect URL", default=lambda self: self._default_redirect_url()
@@ -155,13 +156,10 @@ class EnablebankingApplication(models.Model):
         """
         self.ensure_one()
 
-        if not self.bank_id:
-            raise ValidationError(self.env._("Please configure a bank account"))
+        if not self.bank_bic:
+            raise ValidationError(self.env._("Please add the BIC of the bank"))
 
-        if not self.bank_id.bic:
-            raise ValidationError(self.env._("Please add a BIC to your bank account"))
-
-        bic = self.bank_id.bic
+        bic = self.bank_bic
 
         jwt = self._enablebanking_get_jwt_token()
         base_headers = self._enablebanking_get_basic_headers(jwt)

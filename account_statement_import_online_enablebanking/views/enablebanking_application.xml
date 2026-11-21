@@ -31,7 +31,7 @@
               <field name="valid_until" invisible="not session" />
               <field name="authenticated_bank_accounts" invisible="not session" />
               <field name="application_id" />
-              <field name="bank_id" />
+              <field name="bank_bic" />
               <field name="user_id" />
               <field name="psu_type" />
               <field name="redirect_url" />
@@ -51,7 +51,7 @@
                 <button
                   string="Get ASPSP info"
                   type="object"
-                  invisible="bank_id == False"
+                  invisible="not bank_bic"
                   name="action_enablebanking_get_aspsp"
                   groups="base.group_system"
                   class="oe_highlight"

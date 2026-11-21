@@ -14,10 +14,10 @@
           string="Enable Banking"
           invisible="service != 'enablebanking'"
         >
-          <field name="bank_id" readonly="1" />
+          <field name="bank_bic" readonly="1" />
           <field
             name="enablebanking_application_id"
-            domain="[('bank_id', '=', bank_id)]"
+            domain="[('bank_bic', '=', bank_bic)]"
             required="service == 'enablebanking'"
           />
           <field name="enablebanking_valid_until" />

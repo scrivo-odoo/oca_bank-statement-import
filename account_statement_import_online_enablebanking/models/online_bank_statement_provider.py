@@ -18,7 +18,7 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
     enablebanking_valid_until = fields.Datetime(
         related="enablebanking_application_id.valid_until",
     )
-    bank_id = fields.Many2one(comodel_name="res.bank", related="journal_id.bank_id")
+    bank_bic = fields.Char(related="journal_id.bank_bic")
 
     application_id = fields.Char(
         related="enablebanking_application_id.application_id", readonly=True
