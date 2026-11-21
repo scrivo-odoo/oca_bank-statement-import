@@ -36,8 +36,6 @@
               <field name="psu_type" />
               <field name="redirect_url" />
               <field name="company_id" />
-              <field name="key_name" invisible="1" />
-              <field name="key" filename="key_name" />
               <field
                 name="online_bank_statement_provider_ids"
                 readonly="1"

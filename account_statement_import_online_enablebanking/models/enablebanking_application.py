@@ -1,6 +1,6 @@
-import base64
 import json
 import logging
+import os
 import uuid
 from datetime import datetime, timedelta, timezone
 
@@ -8,7 +8,7 @@ import jwt as pyjwt
 import requests
 
 from odoo import api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -41,7 +41,6 @@ class EnablebankingApplication(models.Model):
         string="API Origin", default="https://api.enablebanking.com", readonly=True
     )
     auth_code = fields.Char(string="Auth code", readonly=False, copy=False)
-    jwt = fields.Char(string="Latest JWT", readonly=True)
     session = fields.Char(string="Latest session", readonly=True)
     valid_until = fields.Datetime(
         string="Valid until",
@@ -53,10 +52,6 @@ class EnablebankingApplication(models.Model):
         help="List of bank accounts that are authenticated",
         compute="_compute_session_data",
     )
-    key = fields.Binary(
-        string="Private key", help="Private key from your EnableBanking.com portal"
-    )
-    key_name = fields.Char()
 
     aspsp_name = fields.Char(string="ASPSP name")
     aspsp_country = fields.Many2one(string="ASPSP country", comodel_name="res.country")
@@ -145,10 +140,10 @@ class EnablebankingApplication(models.Model):
 
     def action_enablebanking_deauthorize(self):
         """
-        Deauthorize the application by clearing the session and JWT.
+        Deauthorize the application by clearing the session.
         This will require re-authentication.
         """
-        self.write({"session": {}, "jwt": False, "enablebanking_state": False})
+        self.write({"session": {}, "enablebanking_state": False})
 
     def action_enablebanking_get_aspsp(self):
         """
@@ -244,16 +239,35 @@ class EnablebankingApplication(models.Model):
 
         return base_headers
 
-    def _enablebanking_get_jwt_token(self):
-        self.ensure_one()
-        if not self.key:
-            raise ValidationError(
+    def _enablebanking_private_key(self):
+        """The private key of the application: the file the stand names, never a column of the database.
+
+        The key of the application is a secret of the stand. A column of the database goes into every copy of it (the copy taken
+        before each deploy, the dump a head restores to try a change), so the key is read from the file whose path the
+        environment of Odoo holds in ENABLEBANKING_KEY_FILE.
+        """
+        path = os.environ.get("ENABLEBANKING_KEY_FILE")
+        if not path:
+            raise UserError(
                 self.env._(
-                    "Private key is missing! "
-                    "Please add a private key for your application."
+                    "The private key of the Enable Banking application is a file of the stand: "
+                    "set ENABLEBANKING_KEY_FILE in the environment of Odoo to its path."
                 )
             )
+        try:
+            with open(path, "rb") as key_file:
+                return key_file.read()
+        except OSError as error:
+            raise UserError(
+                self.env._(
+                    "Cannot read the private key of the Enable Banking application from %(path)s (ENABLEBANKING_KEY_FILE): %(error)s",
+                    path=path,
+                    error=error.strerror or error,
+                )
+            ) from error
 
+    def _enablebanking_get_jwt_token(self):
+        self.ensure_one()
         iat = int(datetime.now().timestamp())
 
         # Generate JWT token
@@ -263,17 +277,23 @@ class EnablebankingApplication(models.Model):
             "iat": iat,
             "exp": iat + 3600,
         }
-        jwt = pyjwt.encode(
-            jwt_body,
-            base64.b64decode(self.key).decode("utf-8"),
-            algorithm="RS256",
-            headers={"kid": self.application_id},
-        )
+        try:
+            jwt = pyjwt.encode(
+                jwt_body,
+                self._enablebanking_private_key(),
+                algorithm="RS256",
+                headers={"kid": self.application_id},
+            )
+        except (ValueError, pyjwt.PyJWTError) as error:
+            raise UserError(
+                self.env._(
+                    "The file named by ENABLEBANKING_KEY_FILE is not an RSA private key in PEM form: %(error)s",
+                    error=error,
+                )
+            ) from error
 
         if not isinstance(jwt, str):
             jwt = jwt.decode("utf-8")
-
-        _logger.debug(f"JWT: {jwt}")
 
         return jwt
 
@@ -311,8 +331,6 @@ class EnablebankingApplication(models.Model):
             timeout=10,
         )
         if r.status_code == 200:
-            # Save the jwt for controller
-            self.sudo().jwt = jwt
             self.sudo().enablebanking_state = enablebanking_state
             auth_url = r.json()["url"]
             return {
