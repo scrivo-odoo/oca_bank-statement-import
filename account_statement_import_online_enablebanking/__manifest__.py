@@ -31,7 +31,7 @@
     "external_dependencies": {"python": ["PyJWT"], "bin": []},
     "depends": ["account_statement_import_online"],
     "data": [
-        "security/ir_model_access.xml",
+        "security/ir.access.csv",
         "views/account_journal.xml",
         "views/online_bank_statement_provider.xml",
         "views/enablebanking_application.xml",
