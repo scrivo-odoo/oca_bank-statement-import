@@ -417,6 +417,24 @@ class AccountStatementImportSheetParser(models.TransientModel):
         elif isinstance(value, float):
             return value
         thousands, decimal = mapping._get_float_separators()
+        if decimal:
+            # A point or a comma that the mapping does not name is not dropped
+            # silently: "40,50" read with the decimal point and no thousands
+            # separator would become 4050.
+            unnamed = {".", ","} - {thousands, decimal}
+            if any(char in unnamed for char in value):
+                raise UserError(
+                    self.env._(
+                        "The amount %(value)s has a point or a comma that the "
+                        "mapping %(mapping)s does not name (thousands separator: "
+                        "%(thousands)s, decimals separator: %(decimal)s). Choose "
+                        "the separators the file uses.",
+                        value=value,
+                        mapping=mapping.name,
+                        thousands=mapping.float_thousands_sep,
+                        decimal=mapping.float_decimal_sep,
+                    )
+                )
         # Remove all characters except digits, thousands separator,
         # decimal separator, and signs
         value = re.sub(
