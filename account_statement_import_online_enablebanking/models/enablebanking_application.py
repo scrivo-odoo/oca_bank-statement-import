@@ -32,8 +32,9 @@ class EnablebankingApplication(models.Model):
     )
     bank_bic = fields.Char(
         string="Bank BIC",
-        required=True,
-        help="BIC of the bank, as the bank account of the journal carries it (Odoo 20 has no res.bank).",
+        help="BIC of the bank, as the bank account of the journal carries it (Odoo 20 has no res.bank). "
+        "It is only a way to find the bank in the list of Enable Banking (Get ASPSP info): a bank that gives no BIC "
+        "is named by its ASPSP name and country, which are set by hand or from the list.",
     )
     redirect_url = fields.Char(
         string="Redirect URL", default=lambda self: self._default_redirect_url()
@@ -188,7 +189,11 @@ class EnablebankingApplication(models.Model):
         self.ensure_one()
 
         if not self.bank_bic:
-            raise ValidationError(self.env._("Please add the BIC of the bank"))
+            raise ValidationError(
+                self.env._(
+                    "Please add the BIC of the bank, or set the ASPSP name and country of the application by hand"
+                )
+            )
 
         bic = self.bank_bic
 
