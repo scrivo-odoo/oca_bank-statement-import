@@ -1,3 +1,4 @@
+import hashlib
 import json
 import logging
 import os
@@ -61,7 +62,7 @@ class EnablebankingApplication(models.Model):
         default="personal",
     )
     enablebanking_state = fields.Char(
-        help="Helper for identifying the correct provider"
+        help="SHA-256 of the state sent to the bank with the request of consent; it names the application on the way back"
     )
     user_id = fields.Many2one(
         comodel_name="res.users",
@@ -141,7 +142,11 @@ class EnablebankingApplication(models.Model):
             }
 
             if session:
-                _logger.debug(f"Session data: {session}")
+                _logger.debug(
+                    "Enable Banking %s: session with %s account(s)",
+                    record.application_id,
+                    len(session.get("accounts") or []),
+                )
 
                 # Get valid until from session data
                 valid_until = session.get("access", {}).get("valid_until")
@@ -191,14 +196,15 @@ class EnablebankingApplication(models.Model):
             )
 
         body = {"psu_type": self.psu_type, "country": self.company_id.country_code}
-        r = requests.get(
-            f"{self.api_origin}/aspsps",
-            params=body,
-            headers=base_headers,
-            timeout=10,
-        ).json()
-
-        _logger.debug(f"ASPSP response: {r}")
+        r = self._enablebanking_body(
+            requests.get(
+                f"{self.api_origin}/aspsps",
+                params=body,
+                headers=base_headers,
+                timeout=10,
+            ),
+            "GET /aspsps",
+        )
 
         aspsps = r.get("aspsps", [])
         # Banks of one group may share a BIC (the FAQ of Enable Banking says so): one match is a choice, none or several
@@ -240,17 +246,9 @@ class EnablebankingApplication(models.Model):
             headers=base_headers,
             timeout=10,
         )
-        if r.status_code == 200:
-            app = r.json()
-            _logger.debug(f"Application details: {app}")
-        else:
-            raise ValidationError(
-                self.env._(
-                    "Error response %(status_code)s: %(response_text)s",
-                    status_code=r.status_code,
-                    response_text=r.text,
-                )
-            )
+        if r.status_code != 200:
+            raise ValidationError(self._enablebanking_error_text(r))
+        app = self._enablebanking_body(r, "GET /application")
 
         if not app.get("active"):
             raise ValidationError(
@@ -343,13 +341,7 @@ class EnablebankingApplication(models.Model):
             timeout=10,
         )
         if r.status_code != 200:
-            raise ValidationError(
-                self.env._(
-                    "Error response %(status_code)s: %(response_text)s",
-                    status_code=r.status_code,
-                    response_text=r.text,
-                )
-            )
+            raise ValidationError(self._enablebanking_error_text(r))
         named = [aspsp for aspsp in r.json().get("aspsps", []) if aspsp.get("name") == self.aspsp_name]
         if len(named) > 1:
             raise UserError(
@@ -399,22 +391,76 @@ class EnablebankingApplication(models.Model):
             headers=base_headers,
             timeout=10,
         )
-        if r.status_code == 200:
-            self.sudo().enablebanking_state = enablebanking_state
-            auth_url = r.json()["url"]
-            return {
-                "type": "ir.actions.act_url",
-                "url": auth_url,
-                "target": "self",
-            }
-        else:
-            raise ValidationError(
-                self.env._(
-                    "Error response %(status_code)s: %(response_text)s",
-                    status_code=r.status_code,
-                    response_text=r.text,
-                )
+        if r.status_code != 200:
+            raise ValidationError(self._enablebanking_error_text(r))
+        self._enablebanking_remember_state(enablebanking_state)
+        return {
+            "type": "ir.actions.act_url",
+            "url": r.json()["url"],
+            "target": "self",
+        }
+
+    @staticmethod
+    def _enablebanking_state_hash(state):
+        return hashlib.sha256(state.encode()).hexdigest()
+
+    def _enablebanking_remember_state(self, state):
+        """Keep only the hash of the state sent to the bank: a reader of the application cannot forge the way back."""
+        self.ensure_one()
+        self.sudo().enablebanking_state = self._enablebanking_state_hash(state)
+
+    @api.model
+    def _enablebanking_by_state(self, state):
+        """The application the bank returns to, found as the current user so that the rule of the companies holds."""
+        if not state:
+            return self.browse()
+        return self.search([("enablebanking_state", "=", self._enablebanking_state_hash(state))])
+
+    def _enablebanking_open_session(self, auth_code, headers, send=None):
+        """Exchange the code the bank returned for a session (POST /sessions) and return the session.
+
+        `send` is the function that posts the request, `requests.post` when not given.
+        """
+        self.ensure_one()
+        send = send or requests.post
+        r = send(f"{self.api_origin}/sessions", json={"code": auth_code}, headers=headers, timeout=10)
+        if r.status_code != 200:
+            _logger.info("Enable Banking %s: the bank refused the code of the consent, status %s", self.application_id, r.status_code)
+            raise ValidationError(self._enablebanking_error_text(r))
+        session = self._enablebanking_body(r, "POST /sessions")
+        _logger.info(
+            "Enable Banking %s: a new session with %s account(s) has been created",
+            self.application_id,
+            len(session.get("accounts") or []),
+        )
+        return session
+
+    @api.model
+    def _enablebanking_body(self, answer, request_name):
+        """The parsed body of an answer of the API; the log says that it came and its status, never what it holds."""
+        _logger.debug("Enable Banking %s: status %s", request_name, answer.status_code)
+        return answer.json()
+
+    @api.model
+    def _enablebanking_error_text(self, answer):
+        """The text of an error for an answer of the API: its status and the message and error code the bank gives.
+
+        The rest of the body stays out: the text goes to the screen, the chatter of the provider and the log.
+        """
+        try:
+            body = answer.json()
+        except ValueError:
+            body = None
+        said = []
+        if isinstance(body, dict):
+            said = [str(body[key]) for key in ("message", "error") if body.get(key)]
+        if said:
+            return self.env._(
+                "Error response %(status_code)s: %(message)s",
+                status_code=answer.status_code,
+                message=" / ".join(said),
             )
+        return self.env._("Error response %(status_code)s", status_code=answer.status_code)
 
     def _enablebanking_get_account_ids(self):
         """

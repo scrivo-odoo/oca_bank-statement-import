@@ -1,14 +1,10 @@
 import json
-import logging
 
-import requests
 import werkzeug
 
 from odoo import http
 from odoo.exceptions import ValidationError
 from odoo.http import request
-
-_logger = logging.getLogger(__name__)
 
 
 class EnableBankingController(http.Controller):
@@ -18,11 +14,7 @@ class EnableBankingController(http.Controller):
         enablebanking_state = kwargs.get("state")
         # The application is found as the user who comes back from the bank, so the rule of the companies holds: a user
         # sees only the applications of the own company. No state names no application, and one state names exactly one.
-        enablebanking = (
-            request.env["enablebanking.application"].search([("enablebanking_state", "=", enablebanking_state)])
-            if enablebanking_state
-            else request.env["enablebanking.application"]
-        )
+        enablebanking = request.env["enablebanking.application"]._enablebanking_by_state(enablebanking_state)
 
         if len(enablebanking) != 1:
             raise ValidationError(
@@ -33,30 +25,7 @@ class EnableBankingController(http.Controller):
             )
 
         jwt = enablebanking._enablebanking_get_jwt_token()
-        base_headers = {"Authorization": f"Bearer {jwt}"}
-        _logger.debug(f"Using auth code: {auth_code}")
-
-        r = requests.post(
-            f"{enablebanking.api_origin}/sessions",
-            json={"code": auth_code},
-            headers=base_headers,
-            timeout=10,
-        )
-        if r.status_code == 200:
-            session = r.json()
-            _logger.info(
-                request.env._(
-                    "New user session has been created: %s", session.get("session_id")
-                )
-            )
-        else:
-            raise ValidationError(
-                request.env._(
-                    "Error response %(status_code)s: %(response_text)s",
-                    status_code=r.status_code,
-                    response_text=r.text,
-                )
-            )
+        session = enablebanking._enablebanking_open_session(auth_code, {"Authorization": f"Bearer {jwt}"})
 
         # An accountant reads the application but does not write it; storing the session is this callback's job.
         enablebanking.sudo().session = json.dumps(session)

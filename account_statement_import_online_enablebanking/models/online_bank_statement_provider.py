@@ -208,28 +208,8 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
                 headers=base_headers,
                 timeout=30,
             )
-            if r.status_code == 401:
-                # Not authorized: expired, withdrawn. An error and not an empty answer: a pull that ends in silence moves the
-                # date of the last good run forward and the days it skipped never come back.
-                _logger.info(f"Error response {r.status_code}: {r.text}")
-                raise UserError(
-                    self.env._(
-                        "Bank authentication is invalid. "
-                        "Please re-authenticate to fetch bank statements."
-                    )
-                )
-            if r.status_code != 200:
-                raise ValidationError(
-                    self.env._(
-                        "Error response %(status_code)s: %(response_text)s",
-                        status_code=r.status_code,
-                        response_text=r.text,
-                    )
-                )
-            resp_data = r.json()
-            page = resp_data["transactions"]
-            _logger.info(f"Found {len(page)} transactions")
-            raw_transactions += page
+            resp_data = self._enablebanking_transactions_page(r)
+            raw_transactions += resp_data["transactions"]
             continuation_key = resp_data.get("continuation_key")
             if not continuation_key:
                 _logger.info(
@@ -237,12 +217,29 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
                     f"All transactions were fetched for {self.account_number}"
                 )
                 break
-            _logger.info(
-                f"Fetching more transactions with continuation key "
-                f"{continuation_key}"
-            )
 
         return self._enablebanking_lines(raw_transactions), {}
+
+    def _enablebanking_transactions_page(self, answer):
+        """The body of one answer of GET /accounts/{uid}/transactions, or the refusal it is."""
+        application = self.env["enablebanking.application"]
+        if answer.status_code == 401:
+            # Not authorized: expired, withdrawn. An error and not an empty answer: a pull that ends in silence moves the
+            # date of the last good run forward and the days it skipped never come back.
+            _logger.info(application._enablebanking_error_text(answer))
+            raise UserError(
+                self.env._(
+                    "Bank authentication is invalid. "
+                    "Please re-authenticate to fetch bank statements."
+                )
+            )
+        if answer.status_code != 200:
+            raise ValidationError(application._enablebanking_error_text(answer))
+        page = answer.json()
+        _logger.info(f"Found {len(page['transactions'])} transactions")
+        if page.get("continuation_key"):
+            _logger.info("Fetching the next page of transactions")
+        return page
 
     def _enablebanking_lines(self, raw_transactions):
         """Statement line values of the booked, non-zero transactions of one answer, each with a key of its own."""
@@ -318,7 +315,7 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
         """
         Map EnableBanking transaction data to Odoo bank statement line values.
         """
-        _logger.debug(f"Mapping transaction data to bank statement: {transaction}")
+        _logger.debug("Mapping the transaction %s to a bank statement line", transaction.get("entry_reference") or "-")
         transaction_type = transaction.get("credit_debit_indicator")
         if transaction_type == "DBIT":
             multiplier = -1
@@ -357,9 +354,8 @@ class OnlineBankStatementProviderEnablebanking(models.Model):
                 vals["partner_id"] = partners.id
             elif partners:
                 _logger.info(
-                    "Enable Banking %s: more than one partner is named %r, the line %s comes without a partner",
+                    "Enable Banking %s: more than one partner has the name of the counterparty, the line %s comes without a partner",
                     self.journal_id.display_name,
-                    partner_name,
                     transaction.get("entry_reference") or "-",
                 )
 

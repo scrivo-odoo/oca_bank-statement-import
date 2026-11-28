@@ -144,6 +144,7 @@ class TestSecretsOutOfLog(EnableBankingCase):
         self.assertIn("400", message)
         self.assertIn("Session expired", message)
         self.assertNoSecret(message)
+        self.assertIn("refused", self.logged(logs))
         self.assertNoSecret(self.logged(logs))
 
     # ------------------------------------------------------------------------------------------------- a page of transactions

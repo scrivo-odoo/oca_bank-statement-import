@@ -207,7 +207,7 @@ class FirmsCase(EnableBankingCase):
                 "bank_bic": "TESTLV22",
                 "company_id": cls.foreign_company.id,
                 "session": session([account("foreign-uid", iban="LV00FOREIGN000000001")]),
-                "enablebanking_state": "foreign-state",
+                "enablebanking_state": cls.env["enablebanking.application"]._enablebanking_state_hash("foreign-state"),
             }
         )
         group_user = cls.env.ref("base.group_user")
@@ -295,7 +295,7 @@ class TestTheCallbackOfTheBank(FirmsCase, HttpCase):
         return application.sudo().session
 
     def test_the_owner_of_the_firm_that_asked_for_the_consent_stores_the_session(self):
-        self.application.enablebanking_state = "own-state"
+        self.application._enablebanking_remember_state("own-state")
         self.env.flush_all()
         response, posted = self.call("test-eb-accountant", "state=own-state&code=abc")
         self.assertEqual(response.status_code, 303)

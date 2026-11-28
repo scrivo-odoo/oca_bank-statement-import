@@ -4,3 +4,5 @@ This module is a successor for "account_bank_statement_import_tilisy",
 replicating its functionality, but is not backwards-compatible.
 If you are coming from "account_bank_statement_import_tilisy",
 please just remove it and install this instead.
+
+The module is licensed under AGPL-3.0 or later (see `license` in the manifest).
