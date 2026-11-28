@@ -9,7 +9,7 @@ import jwt as pyjwt
 import requests
 
 from odoo import api, fields, models
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import AccessError, UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -165,7 +165,14 @@ class EnablebankingApplication(models.Model):
 
     # Enablebanking
     def action_enablebanking_authenticate(self):
+        self._enablebanking_check_may_ask_for_consent()
         return self._enablebanking_authorize()
+
+    @api.model
+    def _enablebanking_check_may_ask_for_consent(self):
+        """A consent opens the accounts of the firm to the application: only an administrator asks the bank for one."""
+        if not self.env.user.has_group("base.group_system"):
+            raise AccessError(self.env._("Only an administrator can ask the bank for a consent."))
 
     def action_enablebanking_deauthorize(self):
         """

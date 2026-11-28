@@ -32,6 +32,7 @@ class AccountJournal(models.Model):
     def action_enablebanking_authenticate(self):
         # A shortcut for Enable Banking authentication
         self.ensure_one()
+        self.env["enablebanking.application"]._enablebanking_check_may_ask_for_consent()
         if self.online_bank_statement_provider == "enablebanking":
             application = (
                 self.online_bank_statement_provider_id.enablebanking_application_id
