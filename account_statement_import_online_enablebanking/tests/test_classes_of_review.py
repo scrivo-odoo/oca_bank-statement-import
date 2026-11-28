@@ -397,3 +397,25 @@ class TestAnEmptyOrAmbiguousChoiceIsARefusal(EnableBankingCase):
         self.pull({"uid-eur": [line("P-2", "5.00", creditor={"name": "Twin Counterparty Test"})]}, *OCTOBER)
         self.assertEqual(len(self.lines()), 1)
         self.assertFalse(self.lines().partner_id)
+
+
+# ---------------------------------------------------------------------------------------------------------- a bank with no BIC
+@tagged("post_install", "-at_install")
+class TestABankThatGivesNoBic(EnableBankingCase):
+    """Six of the 27 banks Enable Banking lists for Latvia give no BIC (Genome, N26, PayPal, Paysera, Signet Bank, bunq): the list names a bank by its
+    name and country, and the BIC is only a way to find one in it. An application for such a bank is made with the name and the country and no BIC."""
+
+    def test_an_application_for_a_bank_with_no_bic_is_made_with_its_name_and_country(self):
+        application = self.env["enablebanking.application"].create(
+            {"application_id": "no-bic-app", "psu_type": "personal", "aspsp_name": "N26", "aspsp_country": self.env.ref("base.lv").id}
+        )
+        self.assertEqual((application.aspsp_name, application.aspsp_country.code, application.bank_bic), ("N26", "LV", False))
+
+    def test_an_application_with_a_bic_is_still_made_and_keeps_it(self):
+        self.assertEqual(self.application.bank_bic, "BANKLV22")
+
+    def test_the_bank_is_not_found_by_a_bic_the_application_does_not_have_and_no_bank_is_picked(self):
+        application = self.env["enablebanking.application"].create({"application_id": "no-bic-app-2", "psu_type": "personal"})
+        with self.assertRaisesRegex(ValidationError, "BIC"):
+            application.action_enablebanking_get_aspsp()
+        self.assertFalse(application.aspsp_name)
